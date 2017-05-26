@@ -5,13 +5,14 @@
   "homepage": "",
   "main": "src",
   "keywords": [
-    "feathers", "lims"
+    "feathers",
+    "lims"
   ],
   "author": {
     "name": "Michael Wanyoike",
     "email": "micwanyoike@gmail.com"
   },
-  "license":"GPL-3.0",
+  "license": "GPL-3.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:brandiqa/open-lims.git"
@@ -28,7 +29,7 @@
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
-    "start": "node src/",
+    "start": "nodemon src/",
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
@@ -45,6 +46,7 @@
     "feathers-socketio": "^2.0.0",
     "helmet": "^3.6.1",
     "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "serve-favicon": "^2.4.3",
