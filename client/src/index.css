@@ -1,3 +1,13 @@
 .error {
   color: #9f3a38
 }
+
+.text-center {
+  text-align: center;
+}
+
+.centered {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 30px !important;
+}

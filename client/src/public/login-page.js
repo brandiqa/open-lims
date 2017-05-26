@@ -1,7 +1,10 @@
 import React from 'react';
+import { inject } from 'mobx-react';
+import { Container, Segment, Header, Icon } from 'semantic-ui-react';
 import createForm from '../common/mobx-form';
 import DynamicForm from '../common/dynamic-form';
-import { inject } from 'mobx-react';
+import { brand } from '../common/theme';
+
 
 @inject("stores")
 class Login extends React.Component {
@@ -23,16 +26,23 @@ class Login extends React.Component {
     }
   }
 
-  form = null;
+  loginForm = null;
 
   constructor(props) {
     super(props);
-    this.form = createForm(this.fields, this.props.stores.authStore);
+    this.loginForm = createForm(this.fields, this.props.stores.authStore);
   }
 
   render() {
     return (
-      <DynamicForm form={this.form}/>
+      <Container>
+        <Segment compact padded='very' className='centered' style={{marginTop:'5vh'}}>
+          <Header color={brand} as='h3'>
+            <Icon name="lock"/>Sign in to your Account
+          </Header>
+          <DynamicForm form={this.loginForm}/>
+        </Segment>
+      </Container>
     )
   }
 }
