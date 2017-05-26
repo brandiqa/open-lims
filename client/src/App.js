@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import { Menu, Icon, Segment, Header } from 'semantic-ui-react';
+import { Route } from 'react-router-dom';
+import { Icon, Segment, Header } from 'semantic-ui-react';
+import LoginPage from './public/login-page';
+import { routes }  from './common/routes';
 import { brand } from './common/theme';
 
 class App extends Component {
@@ -17,7 +20,7 @@ class App extends Component {
             </Header.Subheader>
           </Header>
         </Segment>
-        <h2>Login form component missing</h2>
+        <Route path={routes.home} component={LoginPage} />
       </div>
     )
   }
