@@ -21,7 +21,7 @@ class MobxForm extends MobxReactForm {
   }
 }
 
-export default function createForm(fields, store){
+export default function createForm(fields, store) {
   const plugins = { dvr: validatorjs };
   return new MobxForm({fields}, {plugins}, store);
 }

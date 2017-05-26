@@ -6,11 +6,11 @@ import { Form, Button, Grid, Message } from 'semantic-ui-react';
 class DynamicForm extends React.Component {
 
   render() {
-    const { form, loading } = this.props;
+    const { form } = this.props;
 
     return (
       <div>
-        <Form onSubmit={form.onSubmit} loading={loading}>
+        <Form onSubmit={form.onSubmit}>
           <p>input field here</p>
         </Form>
       </div>
@@ -18,4 +18,4 @@ class DynamicForm extends React.Component {
   }
 }
 
-export default DynamicForm
+export default DynamicForm;

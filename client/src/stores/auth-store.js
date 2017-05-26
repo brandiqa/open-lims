@@ -9,7 +9,11 @@ class AuthStore {
   @observable loading = false;
   @observable errors = {}
 
-  userService = feathersClient().service('users');
+  userService = null;
+
+  constructor(serviceName) {
+    this.userService = feathersClient().service(serviceName);
+  }
 
   @action
   sessionAuth = () => {
@@ -58,4 +62,4 @@ class AuthStore {
   }
 }
 
-export default new AuthStore();
+export default AuthStore;

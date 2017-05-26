@@ -1,7 +1,9 @@
 import React from 'react';
-// import MobxForm from '../common/mobx-form';
-// import FormComp from '../common/form';
+import createForm from '../common/mobx-form';
+import DynamicForm from '../common/dynamic-form';
+import { inject } from 'mobx-react';
 
+@inject("stores")
 class Login extends React.Component {
 
   fields = {
@@ -23,13 +25,14 @@ class Login extends React.Component {
 
   form = null;
 
-  componentOnMount() {
-    // this.form = new Form()
+  constructor(props) {
+    super(props);
+    this.form = createForm(this.fields, this.props.stores.authStore);
   }
 
   render() {
     return (
-      <p>display form here</p>
+      <DynamicForm form={this.form}/>
     )
   }
 }

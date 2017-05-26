@@ -3,14 +3,13 @@ import AuthStore from './auth-store';
 import Store from './store';
 
 const config = {
-  global: true,
   onlyActions:true,
   filters: {
     whitelist: /fetch|update|create|Event|entity|entities|handleErrors/
   }
 };
 
-const authStore = new AuthStore();
+const authStore = new AuthStore('users');
 const customerStore = new Store('api/customers');
 
 const allStores = {
