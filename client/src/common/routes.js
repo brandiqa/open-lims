@@ -125,3 +125,10 @@ export function getIconLinks(path) {
       </NavLink>
   ))
 }
+
+export function getRoutes(path) {
+  const routes = rts.find(route => route.path === path).routes;
+  return routes.map(route => (
+    <Route key={route.path} component={route.component} exact={route.exact} path={route.path} />
+  ))
+}

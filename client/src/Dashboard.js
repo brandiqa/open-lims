@@ -1,13 +1,7 @@
 import React from 'react';
 import { Sidebar, Segment, Menu, Icon, Button, Divider } from 'semantic-ui-react';
-import { Route } from 'react-router-dom';
-import { routes, getIconLinks } from './common/routes';
+import { getIconLinks, getRoutes } from './common/routes';
 import { brand } from './common/theme';
-import DashboardPage from './dashboard/dashboard-page';
-import Sales from './sales';
-// import Inventory from './inventory';
-// import Lab from './lab';
-import Admin from './admin';
 
 class Dashboard extends React.Component {
 
@@ -19,21 +13,6 @@ class Dashboard extends React.Component {
             <Segment basic inverted style={{ height: '140px', marginBottom:0}} color={brand}>
               <Icon name='lab' size='huge' circular />
             </Segment>
-            {/* <NavLink className='item' activeClassName='active' exact to={routes.dashboard}>
-              <Icon name='home' /> Dashboard
-            </NavLink>
-            <NavLink className='item' activeClassName='active' to={routes.sales}>
-              <Icon name='money' /> Sales
-            </NavLink>
-            <NavLink className='item' activeClassName='active' to={routes.inventory}>
-              <Icon name='book' /> Inventory
-            </NavLink>
-            <NavLink className='item' activeClassName='active' to={routes.lab}>
-              <Icon name='lab' /> Lab
-            </NavLink>
-            <NavLink className='item' activeClassName='active' to={routes.admin}>
-              <Icon name='user' /> Admin
-            </NavLink> */}
             { getIconLinks('/dashboard') }
           </Sidebar>
           <Sidebar.Pusher>
@@ -52,11 +31,7 @@ class Dashboard extends React.Component {
                 </Menu.Menu>
               </Menu>
               <Divider/>
-              <Route component={DashboardPage} exact path={routes.dashboard} />
-              <Route component={Sales} path={routes.sales} />
-              {/* <Route component={Inventory} path={routes.inventory} /> */}
-              {/* <Route component={Lab} path={routes.lab} /> */}
-              <Route component={Admin} path={routes.admin} />
+              { getRoutes('/dashboard') }
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
