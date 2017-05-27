@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Sidebar, Segment, Menu, Icon, Button } from 'semantic-ui-react';
+import { Sidebar, Segment, Menu, Icon, Button, Divider } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
 import { routes } from './common/routes';
 import { brand } from './common/theme';
@@ -13,8 +13,8 @@ class Dashboard extends React.Component {
       <div>
         <Sidebar.Pushable as={Segment} style={{height:'100vh'}}>
           <Sidebar as={Menu} width='thin' vertical visible inverted color={brand}>
-            <Segment basic inverted style={{ height: '80px', marginBottom:0}} color={brand}>
-              <Icon name='lab' size='huge' style={{width:'50px',textAlign:'center'}} />
+            <Segment basic inverted style={{ height: '140px', marginBottom:0}} color={brand}>
+              <Icon name='lab' size='huge' circular />
             </Segment>
             <NavLink className='item' activeClassName='active' exact to={routes.dashboard}>
               <Icon name='home' /> Dashboard
@@ -47,7 +47,7 @@ class Dashboard extends React.Component {
                   </Menu.Item>
                 </Menu.Menu>
               </Menu>
-              <hr/>
+              <Divider/>
               <Route component={DashboardPage} exact path={routes.dashboard} />
               <Route component={SalesPage} path={routes.sales} />
             </Segment>
