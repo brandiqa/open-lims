@@ -8,6 +8,7 @@ export const routes = {
   home: app,
   sales,
   customer: sales + '/customer',
+  invoice: sales + '/invoice',
   inventory: dashboard + 'inventory',
   lab: dashboard + 'lab',
   admin: dashboard + 'admin'

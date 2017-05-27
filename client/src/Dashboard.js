@@ -19,16 +19,16 @@ class Dashboard extends React.Component {
             <NavLink className='item' activeClassName='active' exact to={routes.dashboard}>
               <Icon name='home' /> Dashboard
             </NavLink>
-            <NavLink className='item' activeClassName='active' exact to={routes.sales}>
+            <NavLink className='item' activeClassName='active' to={routes.sales}>
               <Icon name='money' /> Sales
             </NavLink>
-            <NavLink className='item' activeClassName='active' exact to={routes.inventory}>
+            <NavLink className='item' activeClassName='active' to={routes.inventory}>
               <Icon name='book' /> Inventory
             </NavLink>
-            <NavLink className='item' activeClassName='active' exact to={routes.lab}>
+            <NavLink className='item' activeClassName='active' to={routes.lab}>
               <Icon name='lab' /> Lab
             </NavLink>
-            <NavLink className='item' activeClassName='active' exact to={routes.admin}>
+            <NavLink className='item' activeClassName='active' to={routes.admin}>
               <Icon name='user' /> Admin
             </NavLink>
           </Sidebar>
@@ -49,7 +49,7 @@ class Dashboard extends React.Component {
               </Menu>
               <hr/>
               <Route component={DashboardPage} exact path={routes.dashboard} />
-              <Route component={SalesPage} exact path={routes.sales} />
+              <Route component={SalesPage} path={routes.sales} />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
