@@ -2,45 +2,43 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Sidebar, Segment, Menu, Icon, Button } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
+import { routes } from './common/routes';
+import { brand } from './common/theme';
 import DashboardPage from './dashboard/dashboard-page';
+import SalesPage from './sales/sales-page';
 
 class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <Sidebar.Pushable as={Segment} style={{height:"100vh"}}>
-          <Sidebar as={Menu} width='thin' vertical visible inverted color='green'>
-            <Segment basic inverted style={{ height: "80px", marginBottom:0}} color='green'>
-              {/* <Image src={icon} size="small" centered style={{width:"50px"}}/> */}
-              <Icon name='lab' size="huge" centered style={{width:"50px"}} />
+        <Sidebar.Pushable as={Segment} style={{height:'100vh'}}>
+          <Sidebar as={Menu} width='thin' vertical visible inverted color={brand}>
+            <Segment basic inverted style={{ height: '80px', marginBottom:0}} color={brand}>
+              <Icon name='lab' size='huge' style={{width:'50px',textAlign:'center'}} />
             </Segment>
-            <NavLink className="item teal" activeClassName="active" exact to="/">
+            <NavLink className='item' activeClassName='active' exact to={routes.dashboard}>
               <Icon name='home' /> Dashboard
             </NavLink>
-            <NavLink className="item teal" activeClassName="active" exact to="/users">
-              <Icon name='users' /> Customers
+            <NavLink className='item' activeClassName='active' exact to={routes.sales}>
+              <Icon name='money' /> Sales
             </NavLink>
-            <NavLink className="item teal" activeClassName="active" exact to="/tickets">
-              <Icon name='book' /> Invoices
+            <NavLink className='item' activeClassName='active' exact to={routes.inventory}>
+              <Icon name='book' /> Inventory
             </NavLink>
-            <NavLink className="item teal" activeClassName="active" exact to="/issues">
-              <Icon name='puzzle' /> Services
+            <NavLink className='item' activeClassName='active' exact to={routes.lab}>
+              <Icon name='lab' /> Lab
             </NavLink>
-            <NavLink className="item teal" activeClassName="active" exact to="/backlog">
-              <Icon name='tasks' /> Jobs
-            </NavLink>
-            <NavLink className="item teal" activeClassName="active" exact to="/users">
-              <Icon name='user' /> Users
+            <NavLink className='item' activeClassName='active' exact to={routes.admin}>
+              <Icon name='user' /> Admin
             </NavLink>
           </Sidebar>
           <Sidebar.Pusher>
-            <Segment basic padded style={{width:"92vw"}}>
+            <Segment basic padded style={{width:'92vw'}}>
               <Menu secondary>
-                <Menu.Header>
-                  {/* <Image src={logo} size="small"/> */}
-                  <h2>Open-LIMS</h2>
+                <Menu.Header as='h2'>
+                  Open-LIMS
                 </Menu.Header>
-                <Menu.Menu position="right">
+                <Menu.Menu position='right'>
                   <Menu.Item>
                     Logged in as [name]
                   </Menu.Item>
@@ -50,7 +48,8 @@ class Dashboard extends React.Component {
                 </Menu.Menu>
               </Menu>
               <hr/>
-              <Route component={DashboardPage} exact path="/dashboard/" />
+              <Route component={DashboardPage} exact path={routes.dashboard} />
+              <Route component={SalesPage} exact path={routes.sales} />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
