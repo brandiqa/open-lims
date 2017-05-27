@@ -5,6 +5,8 @@ import { routes } from '../common/routes';
 import SalesDashboard from './sales-dashboard';
 import Customers from './customers';
 import Invoices from './invoices';
+import Payments from './payments';
+import Accounts from './accounts';
 
 class SalesPage extends Component {
   render() {
@@ -21,10 +23,10 @@ class SalesPage extends Component {
             <NavLink className='item orange' activeClassName='active' exact to={routes.invoice}>
               Invoice
             </NavLink>
-            <NavLink className='item orange' activeClassName='active' exact to={routes.sales}>
+            <NavLink className='item orange' activeClassName='active' exact to={routes.payment}>
               Payments
             </NavLink>
-            <NavLink className='item orange' activeClassName='active' exact to={routes.sales}>
+            <NavLink className='item orange' activeClassName='active' exact to={routes.account}>
               Accounts
             </NavLink>
           </Menu>
@@ -33,6 +35,8 @@ class SalesPage extends Component {
             <Route component={SalesDashboard} exact path={routes.sales} />
             <Route component={Customers} exact path={routes.customer} />
             <Route component={Invoices} exact path={routes.invoice} />
+            <Route component={Payments} exact path={routes.payment} />
+            <Route component={Accounts} exact path={routes.account} />
         </Grid.Column>
       </Grid>
     );

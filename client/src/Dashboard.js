@@ -36,7 +36,7 @@ class Dashboard extends React.Component {
             <Segment basic padded style={{width:'92vw'}}>
               <Menu secondary>
                 <Menu.Header as='h2'>
-                  Open-LIMS
+                  Open Laboratory Information Management System
                 </Menu.Header>
                 <Menu.Menu position='right'>
                   <Menu.Item>
