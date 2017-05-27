@@ -1,8 +1,7 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Sidebar, Segment, Menu, Icon, Button, Divider } from 'semantic-ui-react';
 import { Route } from 'react-router-dom';
-import { routes } from './common/routes';
+import { routes, getIconLinks } from './common/routes';
 import { brand } from './common/theme';
 import DashboardPage from './dashboard/dashboard-page';
 import Sales from './sales';
@@ -11,6 +10,7 @@ import Sales from './sales';
 import Admin from './admin';
 
 class Dashboard extends React.Component {
+
   render() {
     return (
       <div>
@@ -19,7 +19,7 @@ class Dashboard extends React.Component {
             <Segment basic inverted style={{ height: '140px', marginBottom:0}} color={brand}>
               <Icon name='lab' size='huge' circular />
             </Segment>
-            <NavLink className='item' activeClassName='active' exact to={routes.dashboard}>
+            {/* <NavLink className='item' activeClassName='active' exact to={routes.dashboard}>
               <Icon name='home' /> Dashboard
             </NavLink>
             <NavLink className='item' activeClassName='active' to={routes.sales}>
@@ -33,7 +33,8 @@ class Dashboard extends React.Component {
             </NavLink>
             <NavLink className='item' activeClassName='active' to={routes.admin}>
               <Icon name='user' /> Admin
-            </NavLink>
+            </NavLink> */}
+            { getIconLinks('/dashboard') }
           </Sidebar>
           <Sidebar.Pusher>
             <Segment basic padded style={{width:'92vw'}}>
