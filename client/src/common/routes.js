@@ -21,7 +21,7 @@ export const routes = {
   services: lab + '/services',
   tasks: lab + '/tasks',
   jobs: lab + '/jobs',
-  jobTasks: lab + '/jobtasks'
+  jobTasks: lab + '/jobtasks',
   admin,
   users: admin + '/users',
   roles: admin + '/roles',

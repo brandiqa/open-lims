@@ -5,7 +5,10 @@ import { Route } from 'react-router-dom';
 import { routes } from './common/routes';
 import { brand } from './common/theme';
 import DashboardPage from './dashboard/dashboard-page';
-import SalesPage from './sales/sales-page';
+import Sales from './sales';
+// import Inventory from './inventory';
+// import Lab from './lab';
+import Admin from './admin';
 
 class Dashboard extends React.Component {
   render() {
@@ -49,7 +52,10 @@ class Dashboard extends React.Component {
               </Menu>
               <Divider/>
               <Route component={DashboardPage} exact path={routes.dashboard} />
-              <Route component={SalesPage} path={routes.sales} />
+              <Route component={Sales} path={routes.sales} />
+              {/* <Route component={Inventory} path={routes.inventory} /> */}
+              {/* <Route component={Lab} path={routes.lab} /> */}
+              <Route component={Admin} path={routes.admin} />
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
