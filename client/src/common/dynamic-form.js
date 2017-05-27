@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Form, Button, Message } from 'semantic-ui-react';
+import { Form, Button, Message, Icon } from 'semantic-ui-react';
 import _ from 'lodash';
 import InputField from '../common/input-field';
 import { primary } from '../common/theme';
@@ -9,7 +9,7 @@ import { primary } from '../common/theme';
 class DynamicForm extends React.Component {
 
   render() {
-    const { form } = this.props;
+    const { form, submit } = this.props;
     const { errors, loading } = form.store;
     const fields = form.fields.toJS();
     const messages = errors.messages ? errors.messages.toJS() : [];
@@ -31,8 +31,9 @@ class DynamicForm extends React.Component {
         {errors.global && errorMessages }
         <Form onSubmit={form.onSubmit} loading={loading}>
           {inputFields()}
-          <Button color={primary}>
-            Submit
+          <Button color={primary} icon labelPosition="left">
+            <Icon name={submit.icon}/>
+            {submit.label}
           </Button>
         </Form>
       </div>
