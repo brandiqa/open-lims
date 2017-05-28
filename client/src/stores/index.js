@@ -15,7 +15,7 @@ const customerStore = new Store('api/customers');
 
 const allStores = {
   authStore: remotedev(authStore, Object.assign(config, {name:'Auth'})),
-  userStore: remotedev(customerStore, Object.assign(config, {name:'User'})),
+  userStore: remotedev(userStore, Object.assign(config, {name:'User'})),
   customerStore: remotedev(customerStore, Object.assign(config, {name:'Customer'}))
 };
 
