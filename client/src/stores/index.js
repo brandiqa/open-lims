@@ -10,10 +10,12 @@ const config = {
 };
 
 const authStore = new AuthStore('users');
+const userStore = new Store('users');
 const customerStore = new Store('api/customers');
 
 const allStores = {
   authStore: remotedev(authStore, Object.assign(config, {name:'Auth'})),
+  userStore: remotedev(customerStore, Object.assign(config, {name:'User'})),
   customerStore: remotedev(customerStore, Object.assign(config, {name:'Customer'}))
 };
 
