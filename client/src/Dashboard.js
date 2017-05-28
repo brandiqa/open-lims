@@ -27,7 +27,7 @@ class Dashboard extends React.Component {
               </Menu.Header>
               <Menu.Menu position='right'>
                 <Menu.Item>
-                  Logged in as [name]
+                  Logged in as { authStore.fullName }
                 </Menu.Item>
                 <Menu.Item>
                   <Button basic>Logout</Button>
