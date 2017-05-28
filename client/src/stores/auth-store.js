@@ -23,7 +23,7 @@ class AuthStore {
       .then(response => this.client.passport.verifyJWT(response.accessToken))
       .then(data => this.userService.get(data.userId))
       .then(user => this.user = user)
-      .catch(err => console.info('no valid session found'))
+      .catch(err => console.info('AuthStore: no valid session found'))
       .then(() => {
         this.loading = false
         this.authPending = false
