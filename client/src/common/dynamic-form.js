@@ -10,6 +10,7 @@ class DynamicForm extends React.Component {
 
   render() {
     const { form, submit } = this.props;
+    // console.log(form.store)
     const { errors, loading } = form.store;
     const fields = form.fields.toJS();
     const messages = errors.messages ? errors.messages.toJS() : [];

@@ -1,12 +1,17 @@
 import React from 'react';
-import { inject } from 'mobx-react';
+import { inject, observer } from 'mobx-react';
 import { Container, Segment, Header, Icon } from 'semantic-ui-react';
-import createForm from '../common/mobx-form';
+import MobxForm from '../common/mobx-form';
 import DynamicForm from '../common/dynamic-form';
 import { brand } from '../common/theme';
 
+class MobxAuthForm extends MobxForm {
+  onSuccess(form) {
+    this.store.login(form.values())
+  }
+}
 
-@inject("stores")
+@inject("stores") @observer
 class Login extends React.Component {
 
   fields = {
@@ -30,7 +35,7 @@ class Login extends React.Component {
 
   constructor(props) {
     super(props);
-    this.loginForm = createForm(this.fields, this.props.stores.authStore);
+    this.loginForm = MobxAuthForm.createForm(this.fields, this.props.stores.authStore);
   }
 
   render() {

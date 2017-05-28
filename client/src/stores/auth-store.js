@@ -9,10 +9,11 @@ class AuthStore {
   @observable loading = false;
   @observable errors = {}
 
+  client = feathersClient();
   userService = null;
 
   constructor(serviceName) {
-    this.userService = feathersClient().service(serviceName);
+    this.userService = this.client.service(serviceName);
   }
 
   @action
