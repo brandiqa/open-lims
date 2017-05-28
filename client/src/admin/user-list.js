@@ -1,13 +1,13 @@
 import React from 'react';
 
-class UserForm extends React.Component {
+class UserList extends React.Component {
   render() {
     return (
       <div>
-        <p>Users Form</p>
+        <p>User List</p>
       </div>
     )
   }
 }
 
-export default UserForm;
+export default UserList;
