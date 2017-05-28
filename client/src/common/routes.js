@@ -1,10 +1,3 @@
-export const APP_ROUTE = '/app';
-export const DASHBOARD_ROUTE = '/dashboard';
-export const SALES_ROUTE = `${DASHBOARD_ROUTE}/sales`;
-export const INVENTORY_ROUTE = `${DASHBOARD_ROUTE}/inventory`;
-export const LAB_ROUTE = `${DASHBOARD_ROUTE}/lab`;
-export const ADMIN_ROUTE = `${DASHBOARD_ROUTE}/admin`;
-
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
@@ -23,6 +16,13 @@ import Payments from '../sales/payments';
 import Accounts from '../sales/accounts';
 
 import Admin from '../admin';
+
+export const APP_ROUTE = '/app';
+export const DASHBOARD_ROUTE = '/dashboard';
+export const SALES_ROUTE = `${DASHBOARD_ROUTE}/sales`;
+export const INVENTORY_ROUTE = `${DASHBOARD_ROUTE}/inventory`;
+export const LAB_ROUTE = `${DASHBOARD_ROUTE}/lab`;
+export const ADMIN_ROUTE = `${DASHBOARD_ROUTE}/admin`;
 
 
 const Default = () => (
@@ -108,7 +108,6 @@ const routes = [
     ]
   }
 ];
-
 
 function getSubRoutes(path) {
   const route = routes.find(route => route.path === path);

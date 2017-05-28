@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Route } from 'react-router-dom';
 import { Icon, Segment, Header } from 'semantic-ui-react';
 import LoginPage from './public/login-page';
-import { routes }  from './common/routes';
+import { APP_ROUTE }  from './common/routes';
 import { brand } from './common/theme';
 
 class App extends Component {
@@ -20,7 +20,7 @@ class App extends Component {
             </Header.Subheader>
           </Header>
         </Segment>
-        <Route path={routes.home} component={LoginPage} />
+        <Route path={APP_ROUTE} component={LoginPage} />
       </div>
     )
   }

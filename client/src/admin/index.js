@@ -1,8 +1,6 @@
 import React from 'react';
 import { Grid, Menu } from 'semantic-ui-react';
-import { ADMIN_ROUTE } from '../common/constants';
-import { getMenuLinks, getRoutes } from '../common/routes';
-
+import { ADMIN_ROUTE, getMenuLinks, getRoutes } from '../common/routes';
 
 class Admin extends React.Component {
   render() {
