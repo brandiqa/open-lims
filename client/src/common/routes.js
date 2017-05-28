@@ -4,18 +4,18 @@ import { Icon } from 'semantic-ui-react';
 
 import App from '../App';
 import Dashboard from '../Dashboard';
-import { primary } from '../common/theme';
-
 import DashboardSummary from '../dashboard/summary';
-
 import Sales from '../sales';
 import SalesSummary from '../sales/summary';
 import Customers from '../sales/customers';
 import Invoices from '../sales/invoices';
 import Payments from '../sales/payments';
 import Accounts from '../sales/accounts';
-
+import Inventory from '../inventory';
+import Lab from '../lab';
 import Admin from '../admin';
+
+import { primary } from '../common/theme';
 
 export const APP_ROUTE = '/app';
 export const DASHBOARD_ROUTE = '/dashboard';
@@ -79,6 +79,20 @@ const routes = [
             component: Accounts
           }
         ]
+      },
+      {
+        path: INVENTORY_ROUTE,
+        label: 'Inventory',
+        icon: 'book',
+        component: Inventory,
+        routes: []
+      },
+      {
+        path: LAB_ROUTE,
+        label: 'Lab',
+        icon: 'lab',
+        component: Lab,
+        routes: []
       },
       {
         path: ADMIN_ROUTE,
