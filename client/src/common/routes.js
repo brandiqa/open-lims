@@ -6,10 +6,10 @@ import App from '../App';
 import Dashboard from '../Dashboard';
 import { primary } from '../common/theme';
 
-import MainDashboard from '../dashboard/dashboard-page';
+import DashboardSummary from '../dashboard/summary';
 
 import Sales from '../sales';
-import SalesDashboard from '../sales/sales-dashboard';
+import SalesSummary from '../sales/summary';
 import Customers from '../sales/customers';
 import Invoices from '../sales/invoices';
 import Payments from '../sales/payments';
@@ -24,71 +24,70 @@ export const INVENTORY_ROUTE = `${DASHBOARD_ROUTE}/inventory`;
 export const LAB_ROUTE = `${DASHBOARD_ROUTE}/lab`;
 export const ADMIN_ROUTE = `${DASHBOARD_ROUTE}/admin`;
 
-
 const Default = () => (
   <p>This component is under construction!</p>
 )
 
 const routes = [
   {
-    path: '/app',
+    path: APP_ROUTE,
     label: 'Home',
     component: App
   },
   {
-    path: '/dashboard',
+    path: DASHBOARD_ROUTE,
     label: 'Dashboard',
     component: Dashboard,
     routes: [
       {
-        path: '/dashboard',
+        path: DASHBOARD_ROUTE,
         label: 'Dashboard',
         icon: 'home',
         exact: true,
-        component: MainDashboard
+        component: DashboardSummary
       },
       {
-        path: '/dashboard/sales',
+        path: SALES_ROUTE,
         label: 'Sales',
         icon: 'money',
         component: Sales,
         routes: [
           {
-            path: '/dashboard/sales',
+            path: SALES_ROUTE,
             label: 'Summary',
             exact: true,
-            component: SalesDashboard
+            component: SalesSummary
           },
           {
-            path: '/dashboard/sales/customers',
+            path: `${SALES_ROUTE}/customers`,
             label: 'Customers',
             component: Customers
           },
           {
-            path: '/dashboard/sales/invoices',
+            path: `${SALES_ROUTE}/invoices`,
             label: 'Invoices',
             component: Invoices
           },
           {
-            path: '/dashboard/sales/payments',
+            path: `${SALES_ROUTE}/payments`,
             label: 'Payments',
             component: Payments
           },
           {
-            path: '/dashboard/sales/accounts',
+            path: `${SALES_ROUTE}/accounts`,
               label: 'Accounts',
             component: Accounts
           }
         ]
       },
       {
-        path: '/dashboard/admin',
+        path: ADMIN_ROUTE,
         label: 'Admin',
         icon: 'users',
         component: Admin,
         routes: [
           {
-            path: `${ADMIN_ROUTE}`,
+            path: ADMIN_ROUTE,
             label: 'Summary',
             exact: true,
             component: Default
