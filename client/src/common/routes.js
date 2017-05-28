@@ -14,6 +14,7 @@ import Accounts from '../sales/accounts';
 import Inventory from '../inventory';
 import Lab from '../lab';
 import Admin from '../admin';
+import Roles from '../admin/roles';
 
 import { primary } from '../common/theme';
 
@@ -168,7 +169,7 @@ const routes = [
           {
             path: `${ADMIN_ROUTE}/roles`,
             label: 'Roles',
-            component: Default
+            component: Roles
           }
         ]
       }

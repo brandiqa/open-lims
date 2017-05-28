@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Payments extends Component {
+class Payments extends React.Component {
   render() {
     return (
       <p>Payments under construction</p>
