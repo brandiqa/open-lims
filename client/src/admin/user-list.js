@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { Message, Icon, Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import UserCard from './user-card'
 
 @observer
 class UserList extends React.Component {
@@ -16,7 +17,7 @@ class UserList extends React.Component {
 
     const errorMessages = (
       <Message negative header={errors.global} list={messages.reverse()}/>
-    )
+    );
 
     const fetchingMessage = (
       <Message icon info>
@@ -26,7 +27,7 @@ class UserList extends React.Component {
            We are fetching that content for you.
        </Message.Content>
       </Message>
-    )
+    );
 
     const emptyMessage = (
       <Message icon info>
@@ -37,13 +38,24 @@ class UserList extends React.Component {
           <Link to={'/contacts/new'} className="ui button primary right floated">Add New User</Link>
        </Message.Content>
       </Message>
-    )
+    );
+
+    const cardList = entities.map(user => (
+      <UserCard key={user._id} user={user} deleteUser={deleteOne} />
+    ));
+
+    const cardGroup = (
+      <Card.Group>
+        { cardList }
+      </Card.Group>
+    );
 
     return (
       <div>
         { loading && fetchingMessage }
         { entities.length === 0 && !loading  && !errors.global && emptyMessage }
         { errors.global && errorMessages}
+        { cardGroup }
       </div>
     )
   }

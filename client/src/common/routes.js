@@ -17,7 +17,7 @@ import Admin from '../admin';
 import Users from '../admin/users';
 import Roles from '../admin/roles';
 
-import { primary } from '../common/theme';
+import { primary } from './theme';
 
 export const APP_ROUTE = '/app';
 export const DASHBOARD_ROUTE = '/dashboard';
