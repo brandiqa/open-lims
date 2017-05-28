@@ -19,6 +19,8 @@ const authentication = require('./authentication');
 
 const mongodb = require('./mongodb');
 
+const bootstrap = require('./bootstrap');
+
 const app = feathers();
 
 // Load app configuration
@@ -46,5 +48,7 @@ app.configure(services);
 // Configure middleware (see `middleware/index.js`) - always has to be last
 app.configure(middleware);
 app.hooks(appHooks);
+// Initialize application data
+app.configure(bootstrap);
 
 module.exports = app;
