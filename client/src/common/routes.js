@@ -85,7 +85,39 @@ const routes = [
         label: 'Inventory',
         icon: 'book',
         component: Inventory,
-        routes: []
+        routes: [
+          {
+            path: INVENTORY_ROUTE,
+            label: 'Summary',
+            exact: true,
+            component: Default,
+          },
+          {
+            path: `${INVENTORY_ROUTE}/vendors`,
+            label: 'Vendors',
+            component: Default,
+          },
+          {
+            path: `${INVENTORY_ROUTE}/products`,
+            label: 'Products',
+            component: Default,
+          },
+          {
+            path: `${INVENTORY_ROUTE}/purchase`,
+            label: 'Purchase',
+            component: Default,
+          },
+          {
+            path: `${INVENTORY_ROUTE}/stock`,
+            label: 'Stock',
+            component: Default,
+          },
+          {
+            path: `${INVENTORY_ROUTE}/movement`,
+            label: 'Movement',
+            component: Default,
+          },
+        ]
       },
       {
         path: LAB_ROUTE,
