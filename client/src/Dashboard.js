@@ -1,6 +1,6 @@
 import React from 'react';
 import { Sidebar, Segment, Menu, Icon, Button, Divider } from 'semantic-ui-react';
-import { getIconLinks, getRoutes } from './common/routes';
+import { DASHBOARD_ROUTE, getSidebarLinks, getRoutes } from './common/routes';
 import { brand } from './common/theme';
 
 class Dashboard extends React.Component {
@@ -13,7 +13,7 @@ class Dashboard extends React.Component {
             <Segment basic inverted style={{ height: '140px', marginBottom:0}} color={brand}>
               <Icon name='lab' size='huge' circular />
             </Segment>
-            { getIconLinks('/dashboard') }
+            { getSidebarLinks(DASHBOARD_ROUTE) }
           </Sidebar>
           <Sidebar.Pusher>
             <Segment basic padded style={{width:'92vw'}}>
@@ -31,7 +31,7 @@ class Dashboard extends React.Component {
                 </Menu.Menu>
               </Menu>
               <Divider/>
-              { getRoutes('/dashboard') }
+              { getRoutes(DASHBOARD_ROUTE) }
             </Segment>
           </Sidebar.Pusher>
         </Sidebar.Pushable>
