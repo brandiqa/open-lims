@@ -124,7 +124,29 @@ const routes = [
         label: 'Lab',
         icon: 'lab',
         component: Lab,
-        routes: []
+        routes: [
+          {
+            path: LAB_ROUTE,
+            label: 'Summary',
+            exact: true,
+            component: Default,
+          },
+          {
+            path: `${LAB_ROUTE}/services`,
+            label: 'Services',
+            component: Default,
+          },
+          {
+            path: `${LAB_ROUTE}/tests`,
+            label: 'Tests',
+            component: Default,
+          },
+          {
+            path: `${LAB_ROUTE}/jobs`,
+            label: 'Jobs',
+            component: Default,
+          },
+        ]
       },
       {
         path: ADMIN_ROUTE,
