@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import allStores from './stores';
-import { routes }  from './common/routes';
+import { APP_ROUTE, DASHBOARD_ROUTE } from './common/constants';
 import App from './App';
 import Dashboard from './Dashboard';
 
@@ -14,9 +14,9 @@ ReactDOM.render(
   <BrowserRouter>
     <Provider stores={allStores}>
       <Switch>
-        <Route path={routes.app} component={App} />
-        <Route path={routes.dashboard} component={Dashboard} />
-        <Redirect from="/" to={routes.app} />
+        <Route path={APP_ROUTE} component={App} />
+        <Route path={DASHBOARD_ROUTE} component={Dashboard} />
+        <Redirect from="/" to={APP_ROUTE} />
       </Switch>
       </Provider>
   </BrowserRouter>,

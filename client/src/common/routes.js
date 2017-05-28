@@ -1,6 +1,14 @@
+export const APP_ROUTE = '/app';
+export const DASHBOARD_ROUTE = '/dashboard';
+export const SALES_ROUTE = `${DASHBOARD_ROUTE}/sales`;
+export const INVENTORY_ROUTE = `${DASHBOARD_ROUTE}/inventory`;
+export const LAB_ROUTE = `${DASHBOARD_ROUTE}/lab`;
+export const ADMIN_ROUTE = `${DASHBOARD_ROUTE}/admin`;
+
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
+
 import App from '../App';
 import Dashboard from '../Dashboard';
 import { primary } from '../common/theme';
@@ -17,43 +25,7 @@ import Accounts from '../sales/accounts';
 import Admin from '../admin';
 
 
-// const app = '/app/';
-// const dashboard = '/dashboard/';
-// const sales = dashboard + 'sales';
-// const inventory = dashboard + 'inventory';
-// const lab = dashboard + 'lab';
-// const admin = dashboard + 'admin';
-//
-// export const routes = {
-//   app,
-//   dashboard,
-//   home: app,
-//   sales,
-//   customers: sales + '/customers',
-//   invoices: sales + '/invoices',
-//   payments: sales + '/payments',
-//   accounts: sales + '/accounts',
-//   inventory,
-//   products: inventory + '/products',
-//   stock: inventory + '/stock',
-//   lab,
-//   services: lab + '/services',
-//   tasks: lab + '/tasks',
-//   jobs: lab + '/jobs',
-//   jobTasks: lab + '/jobtasks',
-//   admin,
-//   users: admin + '/users',
-//   roles: admin + '/roles',
-// }
-
-export const APP_ROUTE = '/app';
-export const DASHBOARD_ROUTE = '/dashboard';
-export const SALES_ROUTE = `${DASHBOARD_ROUTE}/sales`;
-export const INVENTORY_ROUTE = `${DASHBOARD_ROUTE}/inventory`;
-export const LAB_ROUTE = `${DASHBOARD_ROUTE}/lab`;
-export const ADMIN_ROUTE = `${DASHBOARD_ROUTE}/admin`;
-
-const default = (
+const Default = () => (
   <p>This component is under construction!</p>
 )
 
@@ -83,7 +55,8 @@ const routes = [
         routes: [
           {
             path: '/dashboard/sales',
-            label: 'Sales',
+            label: 'Summary',
+            exact: true,
             component: SalesDashboard
           },
           {
@@ -112,8 +85,14 @@ const routes = [
         path: '/dashboard/admin',
         label: 'Admin',
         icon: 'users',
-        component: Admin
+        component: Admin,
         routes: [
+          {
+            path: `${ADMIN_ROUTE}`,
+            label: 'Summary',
+            exact: true,
+            component: Default
+          },
           {
             path: `${ADMIN_ROUTE}/users`,
             label: 'Users',
@@ -130,18 +109,16 @@ const routes = [
   }
 ];
 
-function getSubRoutes(path) {
-  return routes.find(route => route.path === path).routes;
-}
 
-export function getMenuLinks(path) {
-  const routes = getSubRoutes(path);
-  const className = `item ${primary}`;
-  return routes.map(route => (
-    <NavLink  key={route.path} className={className} activeClassName='active' exact={route.exact} to={route.path}>
-      {route.label}
-    </NavLink>
-  ));
+function getSubRoutes(path) {
+  const route = routes.find(route => route.path === path);
+  if(route) {
+    return route.routes;
+  } else {
+    const dashboardRoutes = routes.find(route => route.path === DASHBOARD_ROUTE).routes;
+    const targetRoute = dashboardRoutes.find(route => route.path === path);
+    return targetRoute.routes;
+  }
 }
 
 export function getSidebarLinks(path) {
@@ -154,8 +131,18 @@ export function getSidebarLinks(path) {
   ));
 }
 
+export function getMenuLinks(path) {
+  const routes = getSubRoutes(path);
+  const className = `item ${primary}`;
+  return routes.map(route => (
+    <NavLink  key={route.path} className={className} activeClassName='active' exact={route.exact} to={route.path}>
+      {route.label}
+    </NavLink>
+  ));
+}
+
 export function getRoutes(path) {
-  const routes = rts.find(route => route.path === path).routes;
+  const routes = getSubRoutes(path);
   return routes.map(route => (
     <Route key={route.path} component={route.component} exact={route.exact} path={route.path} />
   ))
