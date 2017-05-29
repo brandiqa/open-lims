@@ -7,6 +7,8 @@ import { brand } from '../common/theme';
 
 @observer
 class UserForm extends React.Component {
+
+  form = null;
   fields = {
     firstName: {
       name: 'firstName',
@@ -38,27 +40,31 @@ class UserForm extends React.Component {
     }
   }
 
-  form = null;
-
   constructor(props) {
     super(props);
     this.form = MobxForm.createForm(this.fields, props.store)
   }
 
-  componentWillReceiveProps = (nextProps) => {
-    const user = nextProps.user;
-    this.form.update(user);
+  componentDidMount() {
+    const { _id } = this.props.match.params;
+    const { store } = this.props;
+    if(_id){
+      store.fetch(_id)
+    } else {
+      store.newEntity();
+    }
   }
 
   render() {
     const submit = { label:'Save', icon:'check' };
+    const { entity } = this.props.store;
     return (
       <div>
           <Segment style={{maxWidth:'30vw'}}>
             <Header color={brand} as='h4'>
               <Icon name="user"/>New User
             </Header>
-            <DynamicForm form={this.form} submit={submit}/>
+            <DynamicForm store={this.props.store} form={this.form} submit={submit} entity={entity}/>
           </Segment>
       </div>
     )

@@ -22,8 +22,8 @@ class Users extends React.Component {
         </Menu>
         <h3>User Administration</h3>
         <Route component={() => (<UserList store={store}/>)} exact path={listLink}/>
-        <Route component={() => (<UserForm store={store}/>)} path={newLink}/>
-        <Route component={() => (<UserForm store={store}/>)} path={editLink} />
+        <Route component={props => (<UserForm {...props} store={store}/>)} path={newLink}/>
+        <Route component={props => (<UserForm {...props} store={store}/>)} path={editLink} />
       </div>
     )
   }

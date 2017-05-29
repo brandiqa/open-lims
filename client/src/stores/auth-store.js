@@ -5,11 +5,12 @@ import { feathersClient } from './client';
 class AuthStore {
 
   @observable user = {};
-  @observable authPending = true;
+  @observable authPending = false;
   @observable loading = false;
   @observable errors = {}
 
   client = feathersClient();
+  serviceName = 'auth';
   userService = null;
 
   constructor(serviceName) {

@@ -8,10 +8,15 @@ import { primary } from '../common/theme';
 @observer
 class DynamicForm extends React.Component {
 
+  componentWillReceiveProps = (nextProps) => {
+    const { form } = this.props;
+    const entity = nextProps.entity;
+    form.update(entity);
+  }
+
   render() {
     const { form, submit } = this.props;
-    // console.log(form.store)
-    const { errors, loading } = form.store;
+    const { errors, loading, entity } = form.store;
     const fields = form.fields.toJS();
     const messages = errors.messages ? errors.messages.toJS() : [];
 
@@ -27,7 +32,7 @@ class DynamicForm extends React.Component {
       <Message negative header={errors.global} list={messages.reverse()}/>
     );
 
-    return (
+    const formView = (
       <div>
         {errors.global && errorMessages }
         <Form onSubmit={form.onSubmit} loading={loading}>
@@ -37,6 +42,12 @@ class DynamicForm extends React.Component {
             {submit.label}
           </Button>
         </Form>
+      </div>
+    );
+
+    return (
+      <div>
+        { formView }
       </div>
     );
   }
