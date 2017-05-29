@@ -63,11 +63,12 @@ class UserForm extends React.Component {
 
   render() {
     const { entity } = this.props.store;
+
     return (
       <div>
           <Segment style={{maxWidth:'30vw'}}>
             <Header color={brand} as='h4'>
-              <Icon name="user"/>New User
+              <Icon name="user"/> { entity._id ? 'Edit User' : 'New User' }
             </Header>
             <DynamicForm store={this.props.store} form={this.form} config={this.config} entity={entity}/>
           </Segment>
