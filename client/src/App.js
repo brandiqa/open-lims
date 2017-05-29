@@ -17,6 +17,7 @@ class App extends Component {
 
   render() {
     const authStore = this.props.stores.authStore;
+    const { from } = this.props.location.state || {from:{pathname:DASHBOARD_ROUTE}};
 
     const app = (
       <div>
@@ -38,11 +39,11 @@ class App extends Component {
     return (
       <div>
         {
-          authStore.isAuthenticated ? <Redirect to={{ pathname:DASHBOARD_ROUTE, state:{from: this.props.location } }} /> :
+          authStore.isAuthenticated ? <Redirect to={{pathname:from.pathname, state:{from: this.props.location}}} /> :
           app
         }
       </div>
-    )
+    );
   }
 }
 

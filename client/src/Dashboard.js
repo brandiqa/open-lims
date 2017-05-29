@@ -30,7 +30,12 @@ class Dashboard extends React.Component {
                   Logged in as { authStore.fullName }
                 </Menu.Item>
                 <Menu.Item>
-                  <Button basic onClick={() => authStore.logout()}>Logout</Button>
+                  <Button basic onClick={() => {
+                    authStore.logout();
+                    this.props.history.push(APP_ROUTE);
+                  }}>
+                    Logout
+                  </Button>
                 </Menu.Item>
               </Menu.Menu>
             </Menu>

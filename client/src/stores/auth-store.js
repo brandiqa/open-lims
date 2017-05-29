@@ -7,7 +7,7 @@ class AuthStore {
   @observable user = {};
   @observable authPending = false;
   @observable loading = false;
-  @observable errors = {}
+  @observable errors = {};
 
   client = feathersClient();
   serviceName = 'auth';
