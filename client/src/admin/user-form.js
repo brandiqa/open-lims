@@ -3,6 +3,7 @@ import { observer } from 'mobx-react';
 import { Segment, Header, Icon } from 'semantic-ui-react';
 import MobxForm from '../common/mobx-form';
 import DynamicForm from '../common/dynamic-form';
+import { ADMIN_ROUTE } from '../common/routes';
 import { brand } from '../common/theme';
 
 @observer
@@ -40,6 +41,11 @@ class UserForm extends React.Component {
     }
   }
 
+  config = {
+    from: { pathname: `${ADMIN_ROUTE}/users` },
+    submit: { label: 'Save', icon: 'check' }
+  }
+
   constructor(props) {
     super(props);
     this.form = MobxForm.createForm(this.fields, props.store)
@@ -56,7 +62,6 @@ class UserForm extends React.Component {
   }
 
   render() {
-    const submit = { label:'Save', icon:'check' };
     const { entity } = this.props.store;
     return (
       <div>
@@ -64,7 +69,7 @@ class UserForm extends React.Component {
             <Header color={brand} as='h4'>
               <Icon name="user"/>New User
             </Header>
-            <DynamicForm store={this.props.store} form={this.form} submit={submit} entity={entity}/>
+            <DynamicForm store={this.props.store} form={this.form} config={this.config} entity={entity}/>
           </Segment>
       </div>
     )

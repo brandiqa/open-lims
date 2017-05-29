@@ -31,6 +31,11 @@ class Login extends React.Component {
     }
   }
 
+  config = {
+    submit: { label:'Log In', icon:'sign in' },
+    from: { pathname: '/app/'}
+  }
+
   loginForm = null;
 
   constructor(props) {
@@ -39,14 +44,13 @@ class Login extends React.Component {
   }
 
   render() {
-    const submit = { label:'Log In', icon:'sign in' };
     return (
       <Container>
         <Segment compact padded='very' className='centered' style={{marginTop:'5vh'}}>
           <Header color={brand} as='h3'>
             <Icon name="lock"/>Sign in to your Account
           </Header>
-          <DynamicForm form={this.loginForm} submit={submit}/>
+          <DynamicForm form={this.loginForm} config={this.config}/>
         </Segment>
       </Container>
     )

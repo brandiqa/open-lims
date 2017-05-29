@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { Redirect } from 'react-router';
 import { Form, Button, Message, Icon } from 'semantic-ui-react';
 import _ from 'lodash';
 import InputField from '../common/input-field';
@@ -15,8 +16,8 @@ class DynamicForm extends React.Component {
   }
 
   render() {
-    const { form, submit } = this.props;
-    const { errors, loading, entity } = form.store;
+    const { form, config } = this.props;
+    const { errors, loading, redirect } = form.store;
     const fields = form.fields.toJS();
     const messages = errors.messages ? errors.messages.toJS() : [];
 
@@ -38,8 +39,8 @@ class DynamicForm extends React.Component {
         <Form onSubmit={form.onSubmit} loading={loading}>
           {inputFields()}
           <Button color={primary} icon labelPosition="left">
-            <Icon name={submit.icon}/>
-            {submit.label}
+            <Icon name={config.submit.icon}/>
+            {config.submit.label}
           </Button>
         </Form>
       </div>
@@ -47,7 +48,7 @@ class DynamicForm extends React.Component {
 
     return (
       <div>
-        { formView }
+        { redirect ? <Redirect to={config.from.pathname} /> : formView }
       </div>
     );
   }
