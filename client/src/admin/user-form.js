@@ -41,6 +41,23 @@ class UserForm extends React.Component {
     }
   }
 
+  passwordGroup = {
+    password: {
+      name: 'password',
+      label: 'Password',
+      type: 'password',
+      placeholder: 'Confirm Password',
+      rules: 'required|string|between:5,25'
+    },
+    password_confirmation: {
+      name: 'password_confirmation',
+      label: 'Password Confirmation',
+      placeholder: 'Confirm Password',
+      type: 'password',
+      rules: 'same:password'
+    }
+  };
+
   config = {
     from: { pathname: `${ADMIN_ROUTE}/users` },
     submit: { label: 'Save', icon: 'check' }
@@ -48,7 +65,12 @@ class UserForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.form = MobxForm.createForm(this.fields, props.store)
+    const { _id } = props.match.params;
+    let fields = this.fields;
+    if(!_id){
+      fields = { ...this.fields, ...this.passwordGroup};
+    }
+    this.form = MobxForm.createForm(fields, props.store)
   }
 
   componentDidMount() {
