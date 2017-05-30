@@ -6,19 +6,19 @@ class DomainRoute {
   }
 
   get list() {
-    return this.baseRoute + path;
+    return this.baseRoute + this.path;
   }
 
   get new() {
-    return this.baseRoute + path + '/new';
+    return this.baseRoute + this.path + '/new';
   }
 
   get edit() {
-    return this.baseRoute + path + '/edit:_id';
+    return this.baseRoute + this.path + '/edit:_id';
   }
 
   get baseEdit() {
-    return this.baseRoute + path + '/edit';
+    return this.baseRoute + this.path + '/edit';
   }
 
 }

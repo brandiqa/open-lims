@@ -6,7 +6,6 @@ import DomainList from '../templates/domain-list';
 import DomainForm from '../templates/domain-form';
 
 function listLink(linkConfig) {
-  console.log(linkConfig.base)
   return linkConfig.base + linkConfig.path
 }
 
@@ -18,14 +17,11 @@ function editLink(linkConfig) {
   return linkConfig.base + linkConfig.path + '/edit/:_id'
 }
 
-function editRoute(linkConfig) {
-  return linkConfig.base + linkConfig.path + '/edit'
-}
 
 export default ({store, linkConfig, listConfig, formConfig}) => (
   <div>
     <Menu inverted color={secondary}>
-      <NavLink className="item" activeClassName="active" exact to={thlistLink(listConfig)}>
+      <NavLink className="item" activeClassName="active" exact to={listLink(listConfig)}>
         <Icon name='list'/> {listConfig.label}s List</NavLink>
       <NavLink className="item" activeClassName="active" to={newLink(listConfig)}>
         <Icon name='add'/>Add {listConfig.label}

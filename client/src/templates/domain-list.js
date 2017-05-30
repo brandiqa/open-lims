@@ -11,12 +11,12 @@ class DomainList extends React.Component {
   }
 
   handleDoubleClick = (_id) => {
-    const { editRoute } = this.props.config;
-    this.props.history.push(editRoute + _id)
+    // const { editRoute } = this.props.config;
+    this.props.history.push(this.props.routes.baseEdit + _id)
   }
 
   render() {
-    const { config, store } = this.props;
+    const { routes, config, store } = this.props;
     const { entities, loading, errors } = store;
     const messages = errors.messages ? errors.messages.toJS() : [];
 
@@ -40,7 +40,7 @@ class DomainList extends React.Component {
         <Message.Content>
            <Message.Header>No {config.label}(s) Found</Message.Header>
            <span>Add some {config.label}(s) to get started..</span>
-          <Link to={config.newLink} className="ui button primary right floated">Add New {config.label}</Link>
+          <Link to={routes.new} className="ui button primary right floated">Add New {config.label}</Link>
        </Message.Content>
       </Message>
     );
