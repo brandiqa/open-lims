@@ -20,6 +20,8 @@ const authentication = require('./authentication');
 const mongodb = require('./mongodb');
 
 const bootstrap = require('./bootstrap');
+const seeder = require('feathers-seeder');
+const seederConfig = require('./seeder-config');
 
 const app = feathers();
 
@@ -50,5 +52,7 @@ app.configure(middleware);
 app.hooks(appHooks);
 // Initialize application data
 app.configure(bootstrap);
+// Seed demo data
+app.configure(seeder(seederConfig));
 
 module.exports = app;

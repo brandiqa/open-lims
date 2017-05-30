@@ -48,6 +48,7 @@
     "feathers-hooks-common": "^3.5.0",
     "feathers-mongoose": "^5.1.0",
     "feathers-rest": "^1.7.2",
+    "feathers-seeder": "^1.0.8",
     "feathers-socketio": "^2.0.0",
     "helmet": "^3.6.1",
     "mocha": "^3.4.2",
