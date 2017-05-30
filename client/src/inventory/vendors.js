@@ -34,7 +34,7 @@ class Vendors extends React.Component {
       name: 'address',
       label: 'Address',
       placeholder: 'Enter vendor address',
-      type: 'text',
+      type: 'textarea',
       rules:'string|required'
     },
     phone: {

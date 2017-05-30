@@ -4,6 +4,7 @@ import { Redirect } from 'react-router';
 import { Form, Button, Message, Icon } from 'semantic-ui-react';
 import _ from 'lodash';
 import InputField from '../templates/input-field';
+import TextAreaField from '../templates/textarea-field';
 import { primary } from '../config/theme';
 
 @observer
@@ -23,9 +24,11 @@ class DynamicForm extends React.Component {
 
     const inputFields = () => {
       return _.map(fields, field => {
-        return (
-          <InputField key={field.name} field={form.$(field.name)} />
-        )
+        if(field.type === 'textarea') {
+          return(<TextAreaField key={field.name} field={form.$(field.name)} />)
+        } else {
+          return(<InputField key={field.name} field={form.$(field.name)} />)
+        }
       })
     }
 
