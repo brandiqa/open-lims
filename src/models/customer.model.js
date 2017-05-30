@@ -10,6 +10,7 @@ module.exports = function (app) {
     name: { type: String, required: true },
     email: { type: mongooseClient.SchemaTypes.Email, required: true, unique: true },
     address: { type: String, required:false },
+    creditLimit: { type: Number, required:true, default:0 },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });
