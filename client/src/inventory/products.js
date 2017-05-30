@@ -2,18 +2,13 @@ import React from 'react';
 import { inject } from 'mobx-react';
 import { INVENTORY_ROUTE } from '../config/routes';
 import DomainPage from '../templates/domain-page';
+import DomainRoutes from '../templates/domain-routes';
+import DomainSchema from '../templates/domain-schema';
 
 @inject("stores")
 class Products extends React.Component {
 
-  linkConfig = {
-    base: INVENTORY_ROUTE,
-    path: '/products'
-  }
-
-  listConfig = {
-    label: 'Product',
-    editRoute: INVENTORY_ROUTE + '/products/edit',
+  table= {
     headers: ['Name', 'Cost'],
     columns: ['name', 'cost']
   }
@@ -26,27 +21,28 @@ class Products extends React.Component {
       type: 'text',
       rules:'string|required'
     },
-    address: {
+    cost: {
       name: 'cost',
-      label: 'Cost',
+      label: 'Unit Cost',
       placeholder: 'Enter product cost',
       type: 'number',
-      rules:'number|required'
+      rules:'numeric|required'
     },
   }
 
-  formConfig = {
-    label: 'Product',
+  form = {
     fields: this.fields,
     icon: 'shopping basket',
-    from: { pathname: INVENTORY_ROUTE + '/products' },
     submit: { label: 'Save', icon: 'check' }
   }
 
   render() {
     const store = this.props.stores.productStore;
+    const routes = new DomainRoutes(INVENTORY_ROUTE, '/products');
+    const schema = new DomainSchema('Product', this.table, this.form);
+
     return (
-      <DomainPage store={store} linkConfig={this.linkConfig} listConfig={this.listConfig} formConfig={this.formConfig} />
+      <DomainPage store={store} routes={routes} schema={schema} />
     )
   }
 }

@@ -14,11 +14,11 @@ class DomainRoute {
   }
 
   get edit() {
-    return this.baseRoute + this.path + '/edit:_id';
+    return this.baseRoute + this.path + '/edit/:_id';
   }
 
   get baseEdit() {
-    return this.baseRoute + this.path + '/edit';
+    return this.baseRoute + this.path + '/edit/';
   }
 
 }
