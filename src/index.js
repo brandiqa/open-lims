@@ -13,5 +13,5 @@ app.seed().then(() => {
     logger.info(`Feathers application started on ${app.get('host')}:${port}`)
   );
 }).catch(err => {
-  logger.error(err.message)
+  logger.error(err.message);
 });
