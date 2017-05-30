@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Menu } from 'semantic-ui-react';
-import { INVENTORY_ROUTE, getMenuLinks, getRoutes } from '../common/routes';
+import { INVENTORY_ROUTE, getMenuLinks, getRoutes } from '../config/routes';
 
 class Inventory extends React.Component {
   render() {

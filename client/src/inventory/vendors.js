@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
 import { inject } from 'mobx-react';
-import { INVENTORY_ROUTE } from '../common/routes';
+import { INVENTORY_ROUTE } from '../config/routes';
 import VendorList from './vendor-list';
 // import VendorForm from './vendor-form';
 

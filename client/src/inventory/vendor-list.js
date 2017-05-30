@@ -2,7 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { Message, Icon, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { INVENTORY_ROUTE } from '../common/routes';
+import { INVENTORY_ROUTE } from '../config/routes';
 
 @observer
 class VendorList extends React.Component {

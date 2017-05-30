@@ -1,10 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
 import { Segment, Header, Icon } from 'semantic-ui-react';
-import MobxForm from '../common/mobx-form';
-import DynamicForm from '../common/dynamic-form';
-import { ADMIN_ROUTE } from '../common/routes';
-import { brand } from '../common/theme';
+import MobxForm from '../templates/mobx-form';
+import DynamicForm from '../templates/dynamic-form';
+import { ADMIN_ROUTE } from '../config/routes';
+import { brand } from '../config/theme';
 
 @observer
 class UserForm extends React.Component {

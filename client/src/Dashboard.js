@@ -2,8 +2,8 @@ import React from 'react';
 import { inject, observer } from 'mobx-react';
 import {  Redirect } from 'react-router-dom';
 import { Sidebar, Segment, Menu, Icon, Button, Divider } from 'semantic-ui-react';
-import { APP_ROUTE, DASHBOARD_ROUTE, getSidebarLinks, getRoutes } from './common/routes';
-import { brand } from './common/theme';
+import { APP_ROUTE, DASHBOARD_ROUTE, getSidebarLinks, getRoutes } from './config/routes';
+import { brand } from './config/theme';
 
 @inject('stores') @observer
 class Dashboard extends React.Component {

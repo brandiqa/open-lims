@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Menu } from 'semantic-ui-react';
-import { SALES_ROUTE, getMenuLinks, getRoutes } from '../common/routes';
+import { SALES_ROUTE, getMenuLinks, getRoutes } from '../config/routes';
 
 class Sales extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Menu } from 'semantic-ui-react';
-import { LAB_ROUTE, getMenuLinks, getRoutes } from '../common/routes';
+import { LAB_ROUTE, getMenuLinks, getRoutes } from '../config/routes';
 
 class Lab extends React.Component {
   render() {

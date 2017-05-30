@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 import { Provider } from 'mobx-react';
 import allStores from './stores';
-import { APP_ROUTE, DASHBOARD_ROUTE } from './common/routes';
+import { APP_ROUTE, DASHBOARD_ROUTE } from './config/routes';
 import App from './App';
 import Dashboard from './Dashboard';
 

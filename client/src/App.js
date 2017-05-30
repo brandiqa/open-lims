@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import { observer, inject } from 'mobx-react';
 import { Route, Redirect } from 'react-router-dom';
 import { Icon, Segment, Header } from 'semantic-ui-react';
-import LoginPage from './public/login-page';
-import { APP_ROUTE, DASHBOARD_ROUTE }  from './common/routes';
-import { brand } from './common/theme';
+import LoginPage from './public/login';
+import { APP_ROUTE, DASHBOARD_ROUTE }  from './config/routes';
+import { brand } from './config/theme';
 
 @inject('stores') @observer
 class App extends Component {

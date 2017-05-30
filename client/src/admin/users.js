@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
 import { inject } from 'mobx-react';
-import { ADMIN_ROUTE } from '../common/routes';
+import { ADMIN_ROUTE } from '../config/routes';
 import UserList from './user-list';
 import UserForm from './user-form';
 

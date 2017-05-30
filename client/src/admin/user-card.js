@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
-import { ADMIN_ROUTE } from '../common/routes';
+import { ADMIN_ROUTE } from '../config/routes';
 
 export default function UserCard({user, deleteUser}) {
   const editLink = `${ADMIN_ROUTE}/users/edit`;

@@ -3,8 +3,8 @@ import { observer } from 'mobx-react';
 import { Redirect } from 'react-router';
 import { Form, Button, Message, Icon } from 'semantic-ui-react';
 import _ from 'lodash';
-import InputField from '../common/input-field';
-import { primary } from '../common/theme';
+import InputField from '../templates/input-field';
+import { primary } from '../config/theme';
 
 @observer
 class DynamicForm extends React.Component {
