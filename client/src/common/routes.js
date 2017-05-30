@@ -1,24 +1,36 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
 import { Icon } from 'semantic-ui-react';
+import { primary } from './theme';
 
+/** Top-level Routes **/
 import App from '../App';
 import Dashboard from '../Dashboard';
+
+/** Dashboard Routes **/
 import DashboardSummary from '../dashboard/summary';
+
+/** Sales Routes **/
 import Sales from '../sales';
 import SalesSummary from '../sales/summary';
 import Customers from '../sales/customers';
 import Invoices from '../sales/invoices';
 import Payments from '../sales/payments';
 import Accounts from '../sales/accounts';
+
+/** Inventory Routes **/
 import Inventory from '../inventory';
+import Vendors from '../inventory/vendors';
+
+/** Lab Routes **/
 import Lab from '../lab';
+
+/** ADMIN Routes **/
 import Admin from '../admin';
 import Users from '../admin/users';
 import Roles from '../admin/roles';
 
-import { primary } from './theme';
-
+/** CONSTANTS **/
 export const APP_ROUTE = '/app';
 export const DASHBOARD_ROUTE = '/dashboard';
 export const SALES_ROUTE = `${DASHBOARD_ROUTE}/sales`;
@@ -26,6 +38,7 @@ export const INVENTORY_ROUTE = `${DASHBOARD_ROUTE}/inventory`;
 export const LAB_ROUTE = `${DASHBOARD_ROUTE}/lab`;
 export const ADMIN_ROUTE = `${DASHBOARD_ROUTE}/admin`;
 
+/** Empty Placeholder Component **/
 const Default = () => (
   <p>This component is under construction!</p>
 )
@@ -97,7 +110,7 @@ const routes = [
           {
             path: `${INVENTORY_ROUTE}/vendors`,
             label: 'Vendors',
-            component: Default,
+            component: Vendors,
           },
           {
             path: `${INVENTORY_ROUTE}/products`,

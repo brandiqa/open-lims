@@ -1,11 +1,10 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Message, Icon, Card } from 'semantic-ui-react';
+import { Message, Icon } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import UserCard from './user-card'
 
 @observer
-class UserList extends React.Component {
+class VendorList extends React.Component {
 
   componentDidMount() {
     this.props.store.fetchAll();
@@ -33,32 +32,36 @@ class UserList extends React.Component {
       <Message icon info>
         <Icon name='warning circle' />
         <Message.Content>
-           <Message.Header>No User(s) Found</Message.Header>
-           <span>Add some user(s) to get started..</span>
-          <Link to={'/dashboard/admin/users/new'} className="ui button primary right floated">Add New User</Link>
+           <Message.Header>No Vendor(s) Found</Message.Header>
+           <span>Add some vendor(s) to get started..</span>
+          <Link to={`${INVENTORY_ROUTE}/vendors/new`} className="ui button primary right floated">Add New Vendor</Link>
        </Message.Content>
       </Message>
     );
 
-    const cardList = entities.map(user => (
-      <UserCard key={user._id} user={user} deleteUser={deleteOne} />
-    ));
-
-    const cardGroup = (
-      <Card.Group>
-        { cardList }
-      </Card.Group>
-    );
+    const table = (
+      <Table celled>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Address</Table.HeaderCell>
+            <Table.HeaderCell>Phone</Table.HeaderCell>
+            <Table.HeaderCell>Email</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body></Table.Body>
+      </Table>
+    )
 
     return (
       <div>
         { loading && fetchingMessage }
         { entities.length === 0 && !loading  && !errors.global && emptyMessage }
         { errors.global && errorMessages}
-        { cardGroup }
+        { table }
       </div>
     )
   }
 }
 
-export default UserList;
+export default VendorList;
