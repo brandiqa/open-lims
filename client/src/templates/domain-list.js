@@ -10,6 +10,11 @@ class DomainList extends React.Component {
     this.props.store.fetchAll();
   }
 
+  handleDoubleClick = (_id) => {
+    const { editRoute } = this.props.config;
+    this.props.history.push(editRoute + _id)
+  }
+
   render() {
     const { config, store } = this.props;
     const { entities, loading, errors } = store;
@@ -45,7 +50,7 @@ class DomainList extends React.Component {
     ));
 
     const tableData = entities.map(entity => (
-      <Table.Row key={entity._id}>
+      <Table.Row key={entity._id} onDoubleClick={() => this.handleDoubleClick(entity._id)}>
         {
           config.columns.map(column => (
             <Table.Cell key={column}>{entity[column]}</Table.Cell>
