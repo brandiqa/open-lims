@@ -29,16 +29,15 @@ class DomainForm extends React.Component {
 
     return (
       <div>
-          <Segment style={{maxWidth:'30vw'}}>
-            <Header color={brand} as='h4'>
-              <Icon name={config.icon}/> { entity._id ? 'Edit' : 'New' } {config.label}
-            </Header>
-            <DynamicForm store={this.props.store} form={this.form} config={config} entity={entity}/>
-          </Segment>
+        <Segment style={{maxWidth:'30vw'}}>
+          <Header color={brand} as='h4'>
+            <Icon name={config.icon}/> { entity._id ? 'Edit' : 'New' } {config.label}
+          </Header>
+          <DynamicForm store={this.props.store} form={this.form} config={config} entity={entity}/>
+        </Segment>
       </div>
     )
   }
-
 }
 
 export default DomainForm;

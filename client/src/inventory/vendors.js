@@ -76,7 +76,7 @@ class Vendors extends React.Component {
             <Icon name='add'/>Add {this.label}
           </NavLink>
         </Menu>
-        <h3>Vendors</h3>
+        <h3>{this.label}s</h3>
         <Route component={props => (<DomainList {...props} config={this.listConfig} store={store}/>)} exact path={this.listLink}/>
         <Route component={props => (<DomainForm {...props} config={this.formConfig} store={store}/>)} path={this.newLink}/>
         <Route component={props => (<DomainForm {...props} config={this.formConfig} store={store}/>)} path={this.editLink} />
