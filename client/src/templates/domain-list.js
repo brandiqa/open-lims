@@ -6,24 +6,13 @@ import { Link } from 'react-router-dom';
 @observer
 class DomainList extends React.Component {
 
-  constructor(props) {
-    super(props)
-    this.config  = {
-      label: 'Vendor',
-      newLink: '/dashboard/inventory/vendors/new',
-      headers: ['Name', 'Address', 'Phone', 'Email'],
-      columns: ['name', 'address', 'phone', 'email']
-    }
-  }
-
   componentDidMount() {
     this.props.store.fetchAll();
   }
 
   render() {
-    // const { config, store }
-    const config = this.config;
-    const { entities, loading, errors } = this.props.store;
+    const { config, store } = this.props;
+    const { entities, loading, errors } = store;
     const messages = errors.messages ? errors.messages.toJS() : [];
 
     const errorMessages = (

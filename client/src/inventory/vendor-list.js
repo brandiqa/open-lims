@@ -1,3 +1,7 @@
+/**
+  DEPRECATED: Vendor-list is deprectaed in favor of templates/domain-list.ls
+**/
+
 import React from 'react';
 import { observer } from 'mobx-react';
 import { Message, Icon, Table } from 'semantic-ui-react';

@@ -3,7 +3,6 @@ import { Menu } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import { INVENTORY_ROUTE } from '../config/routes';
-// import VendorList from './vendor-list';
 // import VendorForm from './vendor-form';
 import DomainList from '../templates/domain-list';
 
@@ -14,6 +13,13 @@ class Vendors extends React.Component {
     const newLink = `${INVENTORY_ROUTE}/vendors/new`;
     const editLink = `${INVENTORY_ROUTE}/vendors/edit/:_id`;
     const store = this.props.stores.vendorStore;
+    const listConfig  = {
+      label: 'Vendor',
+      newLink,
+      editLink,
+      headers: ['Name', 'Address', 'Phone', 'Email'],
+      columns: ['name', 'address', 'phone', 'email']
+    }
 
     return (
       <div>
@@ -22,8 +28,7 @@ class Vendors extends React.Component {
           <NavLink className="item" activeClassName="active" to={newLink}>Add Vendor</NavLink>
         </Menu>
         <h3>Vendors</h3>
-        <Route component={() => (<DomainList store={store}/>)} exact path={listLink}/>
-        {/* <Route component={() => (<VendorList store={store}/>)} exact path={listLink}/> */}
+        <Route component={() => (<DomainList config={listConfig} store={store}/>)} exact path={listLink}/>
         {/* <Route component={props => (<VendorForm {...props} store={store}/>)} path={newLink}/>
         <Route component={props => (<VendorForm {...props} store={store}/>)} path={editLink} /> */}
       </div>
