@@ -21,6 +21,7 @@ import Accounts from '../sales/accounts';
 /** Inventory Routes **/
 import Inventory from '../inventory';
 import Vendors from '../inventory/vendors';
+import Products from '../inventory/products';
 
 /** Lab Routes **/
 import Lab from '../lab';
@@ -115,7 +116,7 @@ const routes = [
           {
             path: `${INVENTORY_ROUTE}/products`,
             label: 'Products',
-            component: Default,
+            component: Products,
           },
           {
             path: `${INVENTORY_ROUTE}/purchase`,

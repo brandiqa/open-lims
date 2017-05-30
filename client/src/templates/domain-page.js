@@ -1,23 +1,39 @@
 import React from 'react';
 import { Menu, Icon } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
-import { inject } from 'mobx-react';
 import { secondary } from '../config/theme';
 import DomainList from '../templates/domain-list';
 import DomainForm from '../templates/domain-form';
 
-export default ({listConfig, formConfig}) => (
+function listLink(linkConfig) {
+  console.log(linkConfig.base)
+  return linkConfig.base + linkConfig.path
+}
+
+function newLink(linkConfig) {
+  return linkConfig.base + linkConfig.path + '/new'
+}
+
+function editLink(linkConfig) {
+  return linkConfig.base + linkConfig.path + '/edit/:_id'
+}
+
+function editRoute(linkConfig) {
+  return linkConfig.base + linkConfig.path + '/edit'
+}
+
+export default ({store, linkConfig, listConfig, formConfig}) => (
   <div>
     <Menu inverted color={secondary}>
-      <NavLink className="item" activeClassName="active" exact to={listConfig.listLink}>
+      <NavLink className="item" activeClassName="active" exact to={thlistLink(listConfig)}>
         <Icon name='list'/> {listConfig.label}s List</NavLink>
-      <NavLink className="item" activeClassName="active" to={listConfig.newLink}>
+      <NavLink className="item" activeClassName="active" to={newLink(listConfig)}>
         <Icon name='add'/>Add {listConfig.label}
       </NavLink>
     </Menu>
     <h3>{listConfig.label}s</h3>
-    <Route component={props => (<DomainList {...props} config={listConfig} store={store}/>)} exact path={listConfig.listLink}/>
-    <Route component={props => (<DomainForm {...props} config={formConfig} store={store}/>)} path={listConfig.newLink}/>
-    <Route component={props => (<DomainForm {...props} config={formConfig} store={store}/>)} path={listConfig.editLink} />
+    <Route component={props => (<DomainList {...props} config={listConfig} store={store}/>)} exact path={listLink(listConfig)}/>
+    <Route component={props => (<DomainForm {...props} config={formConfig} store={store}/>)} path={newLink(listConfig)}/>
+    <Route component={props => (<DomainForm {...props} config={formConfig} store={store}/>)} path={editLink(listConfig)} />
   </div>
 );
