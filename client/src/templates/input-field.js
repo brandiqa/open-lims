@@ -6,7 +6,7 @@ import classnames from 'classnames';
 export default observer(({field}) => (
   <Form.Field className={classnames({error:field.error})}>
     <label htmlFor={field.id}>
-      {field.label}
+      {field.label} {field.rules.indexOf('required') !== -1 ? <span className="red">*</span> : ''}
     </label>
     <input {...field.bind()} />
     <span className="error">{field.error}</span>

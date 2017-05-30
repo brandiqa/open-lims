@@ -1,8 +1,9 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Icon } from 'semantic-ui-react';
 import { NavLink, Route } from 'react-router-dom';
 import { inject } from 'mobx-react';
 import { INVENTORY_ROUTE } from '../config/routes';
+import { secondary } from '../config/theme';
 import DomainList from '../templates/domain-list';
 import DomainForm from '../templates/domain-form';
 
@@ -66,9 +67,12 @@ class Vendors extends React.Component {
 
     return (
       <div>
-        <Menu>
-          <NavLink className="item" activeClassName="active" exact to={this.listLink}>Vendors List</NavLink>
-          <NavLink className="item" activeClassName="active" to={this.newLink}>Add Vendor</NavLink>
+        <Menu inverted color={secondary}>
+          <NavLink className="item" activeClassName="active" exact to={this.listLink}>
+            <Icon name='list'/> {this.label}s List</NavLink>
+          <NavLink className="item" activeClassName="active" to={this.newLink}>
+            <Icon name='add'/>Add {this.label}
+          </NavLink>
         </Menu>
         <h3>Vendors</h3>
         <Route component={() => (<DomainList config={this.listConfig} store={store}/>)} exact path={this.listLink}/>
