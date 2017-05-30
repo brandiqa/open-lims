@@ -10,7 +10,7 @@ class DomainForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.form = MobxForm.createForm(props.config.fields, props.store)
+    this.form = MobxForm.createForm(props.schema.fields, props.store)
   }
 
   componentDidMount() {
@@ -24,16 +24,17 @@ class DomainForm extends React.Component {
   }
 
   render() {
-    const { config, store } = this.props;
+    const { routes, schema, store } = this.props;
+    const { label } = schema;
     const { entity } = store;
 
     return (
       <div>
         <Segment style={{maxWidth:'30vw'}}>
           <Header color={brand} as='h4'>
-            <Icon name={config.icon}/> { entity._id ? 'Edit' : 'New' } {config.label}
+            <Icon name={schema.icon}/> { entity._id ? 'Edit' : 'New' } {label}
           </Header>
-          <DynamicForm store={this.props.store} form={this.form} config={config} entity={entity}/>
+          <DynamicForm store={store} form={this.form} schema={schema} entity={entity} routes={routes}/>
         </Segment>
       </div>
     )

@@ -17,9 +17,9 @@ class DynamicForm extends React.Component {
   }
 
   render() {
-    const { form, config } = this.props;
-    const { errors, loading, redirect } = form.store;
-    const fields = form.fields.toJS();
+    const { form, schema, store, routes } = this.props;
+    const { errors, loading, redirect } = store;
+    const fields = schema.fields;
     const messages = errors.messages ? errors.messages.toJS() : [];
 
     const inputFields = () => {
@@ -42,8 +42,8 @@ class DynamicForm extends React.Component {
         <Form onSubmit={form.onSubmit} loading={loading}>
           {inputFields()}
           <Button color={primary} icon labelPosition="left">
-            <Icon name={config.submit.icon}/>
-            {config.submit.label}
+            <Icon name={schema.submitIcon}/>
+            {schema.submitLabel}
           </Button>
         </Form>
       </div>
@@ -51,7 +51,7 @@ class DynamicForm extends React.Component {
 
     return (
       <div>
-        { redirect ? <Redirect to={config.from.pathname} /> : formView }
+        { redirect ? <Redirect to={routes.list} /> : formView }
       </div>
     );
   }

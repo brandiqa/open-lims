@@ -7,21 +7,12 @@ import { secondary } from '../config/theme';
 import DomainList from '../templates/domain-list';
 import DomainForm from '../templates/domain-form';
 import DomainRoutes from '../templates/domain-routes';
+import DomainSchema from '../templates/domain-schema';
 
 @inject("stores")
 class Vendors extends React.Component {
 
-  // listLink = `${INVENTORY_ROUTE}/vendors`;
-  // newLink = `${INVENTORY_ROUTE}/vendors/new`;
-  // editRoute = `${INVENTORY_ROUTE}/vendors/edit/`;
-  // editLink = `${INVENTORY_ROUTE}/vendors/edit/:_id`;
-  label = 'Vendor';
-
-  listConfig  = {
-    label: this.label,
-    // newLink: this.newLink,
-    // editLink: this.editLink,
-    // editRoute: this.editRoute,
+  table  = {
     headers: ['Name', 'Address', 'Phone', 'Email'],
     columns: ['name', 'address', 'phone', 'email']
   };
@@ -57,31 +48,30 @@ class Vendors extends React.Component {
     }
   };
 
-  formConfig = {
-    label: this.label,
+  form = {
     fields: this.fields,
     icon: 'address book',
-    // from: { pathname: this.listLink },
     submit: { label: 'Save', icon: 'check' }
   };
 
   render() {
     const store = this.props.stores.vendorStore;
     const routes = new DomainRoutes(INVENTORY_ROUTE, '/vendors');
+    const schema = new DomainSchema('Vendor', this.table, this.form);
 
     return (
       <div>
         <Menu inverted color={secondary}>
           <NavLink className="item" activeClassName="active" exact to={routes.list}>
-            <Icon name='list'/> {this.label}s List</NavLink>
+            <Icon name='list'/> {schema.label}s List</NavLink>
           <NavLink className="item" activeClassName="active" to={routes.new}>
-            <Icon name='add'/>Add {this.label}
+            <Icon name='add'/>Add {schema.label}
           </NavLink>
         </Menu>
-        <h3>{this.label}s</h3>
-        <Route component={props => (<DomainList {...props} routes={routes} config={this.listConfig} store={store}/>)} exact path={routes.list}/>
-        <Route component={props => (<DomainForm {...props} config={this.formConfig} store={store}/>)} path={routes.new}/>
-        <Route component={props => (<DomainForm {...props} config={this.formConfig} store={store}/>)} path={routes.edit} />
+        <h3>{schema.label}s</h3>
+        <Route component={props => (<DomainList {...props} routes={routes} schema={schema} store={store} />)} exact path={routes.list}/>
+        <Route component={props => (<DomainForm {...props} routes={routes} schema={schema} store={store} />)} path={routes.new}/>
+        <Route component={props => (<DomainForm {...props} routes={routes} schema={schema} store={store} />)} path={routes.edit} />
       </div>
     )
   }

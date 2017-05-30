@@ -4,6 +4,7 @@ import { Container, Segment, Header, Icon } from 'semantic-ui-react';
 import MobxForm from '../templates/mobx-form';
 import DynamicForm from '../templates/dynamic-form';
 import { brand } from '../config/theme';
+import DomainSchema from '../templates/domain-schema';
 
 class MobxAuthForm extends MobxForm {
   onSuccess(form) {
@@ -31,10 +32,12 @@ class Login extends React.Component {
     }
   }
 
-  config = {
+  form = {
+    fields: this.fields,
+    icon: 'address book',
+    from: { pathname: '/app/'},
     submit: { label:'Log In', icon:'sign in' },
-    from: { pathname: '/app/'}
-  }
+  };
 
   loginForm = null;
 
@@ -44,13 +47,15 @@ class Login extends React.Component {
   }
 
   render() {
+    const store =  this.props.stores.authStore;
+    const schema = new DomainSchema('Sign In', null, this.form);
     return (
       <Container>
         <Segment compact padded='very' className='centered' style={{marginTop:'5vh'}}>
           <Header color={brand} as='h3'>
             <Icon name="lock"/>Sign in to your Account
           </Header>
-          <DynamicForm form={this.loginForm} config={this.config}/>
+          <DynamicForm store={store} form={this.loginForm} schema={schema}/>
         </Segment>
       </Container>
     )
