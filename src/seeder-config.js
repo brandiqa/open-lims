@@ -6,7 +6,9 @@ module.exports = {
       count: 25,
       template: {
         name: '{{company.companyName}}',
-        address: '{{address.streetAddress}}'
+        address: '{{address.streetAddress}}',
+        phone: '{{phone.phoneNumber}}',
+        email: '{{internet.email}}'
       }
     }
   ]

@@ -7,6 +7,8 @@ module.exports = function (app) {
   const vendors = new mongooseClient.Schema({
     name: { type: String, required: true },
     address: { type: String, required:false },
+    email: { type: mongooseClient.SchemaTypes.Email, unique: true, required:false },
+    phone: { type: String, required:true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });
