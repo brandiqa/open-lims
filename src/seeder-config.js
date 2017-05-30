@@ -15,7 +15,7 @@ module.exports = {
       path: '/api/products',
       count: 50,
       template: {
-        name: '{{commerce.productName}}',
+        name: '{{lorem.word}}',
         cost: '{{finance.amount}}'
       }
     }
