@@ -10,6 +10,14 @@ module.exports = {
         phone: '{{phone.phoneNumber}}',
         email: '{{internet.email}}'
       }
+    },
+    {
+      path: '/api/products',
+      count: 50,
+      template: {
+        name: '{{commerce.productName}}',
+        cost: '{{finance.amount}}'
+      }
     }
   ]
 };
