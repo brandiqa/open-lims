@@ -1,7 +1,8 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Message, Icon } from 'semantic-ui-react';
+import { Message, Icon, Table } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import { INVENTORY_ROUTE } from '../common/routes';
 
 @observer
 class VendorList extends React.Component {
@@ -39,8 +40,17 @@ class VendorList extends React.Component {
       </Message>
     );
 
+    const tableData = entities.map(vendor => (
+      <Table.Row key={vendor._id}>
+        <Table.Cell>{vendor.name}</Table.Cell>
+        <Table.Cell>{vendor.address}</Table.Cell>
+        <Table.Cell>{vendor.phone}</Table.Cell>
+        <Table.Cell>{vendor.email}</Table.Cell>
+      </Table.Row>
+    ));
+
     const table = (
-      <Table celled>
+      <Table celled selectable striped>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Name</Table.HeaderCell>
@@ -49,7 +59,9 @@ class VendorList extends React.Component {
             <Table.HeaderCell>Email</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-        <Table.Body></Table.Body>
+        <Table.Body>
+          {tableData}
+        </Table.Body>
       </Table>
     )
 
