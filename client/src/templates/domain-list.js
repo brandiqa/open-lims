@@ -32,15 +32,15 @@ class DomainList extends React.Component {
       <Message negative header={errors.global} list={messages.reverse()}/>
     );
 
-    const fetchingMessage = (
-      <Message icon info>
-        <Icon name='circle notched' loading />
-        <Message.Content>
-           <Message.Header>Just one moment</Message.Header>
-           We are fetching that content for you.
-       </Message.Content>
-      </Message>
-    );
+    // const fetchingMessage = (
+    //   <Message icon info>
+    //     <Icon name='circle notched' loading />
+    //     <Message.Content>
+    //        <Message.Header>Just one moment</Message.Header>
+    //        We are fetching that content for you.
+    //    </Message.Content>
+    //   </Message>
+    // );
 
     const emptyMessage = (
       <Message icon info>
@@ -108,7 +108,7 @@ class DomainList extends React.Component {
 
     return (
       <div>
-        { loading && fetchingMessage }
+        {/* { loading && fetchingMessage } */}
         { entities.length === 0 && !loading  && !errors.global && emptyMessage }
         { errors.global && errorMessages}
         { tableView }
