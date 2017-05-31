@@ -38,6 +38,16 @@ module.exports = {
         duration: () => Math.floor(Math.random() * (14 - 2)) + 2,
         price: () => Math.floor(Math.random() * (25000 - 5000)) + 5000
       }
+    },
+    {
+      path: '/api/customers',
+      count: 35,
+      template: {
+        name: '{{company.companyName}}',
+        address: '{{address.streetAddress}}',
+        phone: '{{phone.phoneNumber}}',
+        email: '{{internet.email}}'
+      }
     }
   ]
 };
