@@ -8,6 +8,7 @@ class Store {
   @observable entity = {};
   @observable entities = [];
   @observable pagination = {skip:0, total:0, limit:0};
+  @observable total = 0;
   @observable loading = false;
   @observable redirect = false;
 
@@ -85,6 +86,21 @@ class Store {
     const { skip, limit, total } = this.pagination;
     const next = skip + limit;
     return next > total ? (total-limit) : next;
+  }
+
+  @action
+  count = async() => {
+    this.startAsync();
+    try{
+      const query = {$limit:0}
+      const response = await this.service.find({query})
+      runInAction('entities counted', () => {
+        this.total = response.total;
+        this.loading = false;
+      });
+    } catch(err) {
+        this.handleErrors(err);
+    }
   }
 
   @action
