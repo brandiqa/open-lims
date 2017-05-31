@@ -5,7 +5,7 @@
 module.exports = function (app) {
   const mongooseClient = app.get('mongooseClient');
   const payments = new mongooseClient.Schema({
-    invoice: { type: mongooseClient.Schema.Types.ObjectId, ref: 'invoices' },
+    invoice: { type: mongooseClient.Schema.Types.ObjectId, ref: 'invoices', required:true },
     amount: { type: Number, required: true },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
