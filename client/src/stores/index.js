@@ -14,13 +14,15 @@ const userStore = new Store('users');
 const customerStore = new Store('api/customers');
 const vendorStore = new Store('api/vendors');
 const productStore = new Store('api/products');
+const taskStore = new Store('api/tasks');
 
 const allStores = {
   authStore: remotedev(authStore, Object.assign({}, config, {name:'Auth'})),
   userStore: remotedev(userStore, Object.assign({}, config, {name:'User'})),
   customerStore: remotedev(customerStore, Object.assign({}, config, {name:'Customer'})),
   vendorStore: remotedev(vendorStore, Object.assign({}, config, {name:'Vendor'})),
-  productStore: remotedev(productStore, Object.assign({}, config, {name:'Product'}))
+  productStore: remotedev(productStore, Object.assign({}, config, {name:'Product'})),
+  taskStore: remotedev(taskStore, Object.assign({}, config, {name:'Task'}))
 };
 
 export default allStores;
