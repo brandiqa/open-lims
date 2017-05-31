@@ -98,7 +98,7 @@ class DomainList extends React.Component {
         </Table.Body>
         <Table.Footer>
           <Table.Row>
-            <Table.HeaderCell colSpan='3'>
+            <Table.HeaderCell colSpan='4'>
               {paginationLinks}
             </Table.HeaderCell>
           </Table.Row>
