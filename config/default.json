@@ -3,7 +3,7 @@
   "port": 3030,
   "public": "../public/",
   "paginate": {
-    "default": 50,
+    "default": 12,
     "max": 50
   },
   "authentication": {

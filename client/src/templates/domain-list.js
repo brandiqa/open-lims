@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Message, Icon, Table } from 'semantic-ui-react';
+import { Message, Icon, Table, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 @observer
@@ -15,10 +15,16 @@ class DomainList extends React.Component {
     history.push(routes.baseEdit + _id)
   }
 
+  handlePageClick = (skip) => {
+    const { store } = this.props;
+    store.pagination.skip = skip;
+    store.fetchAll();
+  }
+
   render() {
     const { routes, schema, store } = this.props;
     const { label, table } = schema;
-    const { entities, loading, errors } = store;
+    const { entities, loading, errors, pageNumbers } = store;
     const messages = errors.messages ? errors.messages.toJS() : [];
 
     const errorMessages = (
@@ -60,6 +66,22 @@ class DomainList extends React.Component {
       </Table.Row>
     ));
 
+    const pageItems = pageNumbers.map(page => (
+      <Menu.Item as='a' key={page.skip} onClick={() => this.handlePageClick(page.skip)}>{page.page}</Menu.Item>
+    ));
+
+    const pagination = (
+      <Menu floated='right' pagination>
+        <Menu.Item as='a' icon>
+          <Icon name='left chevron' />
+        </Menu.Item>
+        {pageItems}
+        <Menu.Item as='a' icon>
+          <Icon name='right chevron' />
+        </Menu.Item>
+      </Menu>
+    )
+
     const tableView = (
       <Table celled selectable striped>
         <Table.Header>
@@ -70,6 +92,13 @@ class DomainList extends React.Component {
         <Table.Body>
           {tableData}
         </Table.Body>
+        <Table.Footer>
+          <Table.Row>
+            <Table.HeaderCell colSpan='3'>
+              {pagination}
+            </Table.HeaderCell>
+          </Table.Row>
+        </Table.Footer>
       </Table>
     )
 

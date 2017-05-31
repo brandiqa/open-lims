@@ -1,17 +1,16 @@
-import { observable, action, runInAction } from 'mobx';
+import { observable, action, runInAction, computed } from 'mobx';
 import _ from 'lodash';
 import { feathersClient } from './client';
 
 class Store {
 
-  service = null;
-  serviceName = null;
-
   @observable errors = {};
   @observable entity = {};
   @observable entities = [];
+  @observable pagination = {skip:0};
   @observable loading = false;
   @observable redirect = false;
+
 
   constructor(serviceName) {
     this.service = feathersClient().service(serviceName);
@@ -51,14 +50,29 @@ class Store {
   fetchAll = async() => {
     this.startAsync();
     try{
-      const response = await this.service.find({})
+      const query = {$skip:this.pagination.skip}
+      const response = await this.service.find({query})
       runInAction('entities fetched', () => {
         this.entities = response.data;
+        this.pagination = {
+          total : response.total,
+          limit: response.limit,
+          skip: response.skip
+        };
         this.loading = false;
       });
     } catch(err) {
         this.handleErrors(err);
     }
+  }
+
+  @computed get pageNumbers() {
+    const { total, limit } = this.pagination;
+    let skips = [];
+    for(let i=0; i<total; i+=limit) {
+      skips.push(i);
+    }
+    return skips.map((skip,index) => ({page:index + 1, skip}));
   }
 
   @action
