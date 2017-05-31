@@ -6,6 +6,7 @@ const services = require('./services/services.service.js');
 const invoices = require('./invoices/invoices.service.js');
 const customers = require('./customers/customers.service.js');
 const payments = require('./payments/payments.service.js');
+const jobs = require('./jobs/jobs.service.js');
 module.exports = function () {
   const app = this; // eslint-disable-line no-unused-vars
   app.configure(users);
@@ -16,4 +17,5 @@ module.exports = function () {
   app.configure(invoices);
   app.configure(customers);
   app.configure(payments);
+  app.configure(jobs);
 };
