@@ -24,7 +24,7 @@ const allStores = {
   vendorStore: remotedev(vendorStore, Object.assign({}, config, {name:'Vendor'})),
   productStore: remotedev(productStore, Object.assign({}, config, {name:'Product'})),
   taskStore: remotedev(taskStore, Object.assign({}, config, {name:'Task'})),
-  serviceStore: remotedev(taskStore, Object.assign({}, config, {name:'Services'}))
+  serviceStore: remotedev(serviceStore, Object.assign({}, config, {name:'Services'}))
 };
 
 export default allStores;

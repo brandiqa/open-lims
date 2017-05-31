@@ -25,6 +25,7 @@ import Products from '../inventory/products';
 
 /** Lab Routes **/
 import Lab from '../lab';
+import Services from '../lab/services';
 
 /** ADMIN Routes **/
 import Admin from '../admin';
@@ -150,7 +151,7 @@ const routes = [
           {
             path: `${LAB_ROUTE}/services`,
             label: 'Services',
-            component: Default,
+            component: Services,
           },
           {
             path: `${LAB_ROUTE}/tests`,
