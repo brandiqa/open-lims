@@ -25,7 +25,8 @@ module.exports = {
       template: {
         name: '{{lorem.word}}',
         description: '{{lorem.sentence}}',
-        duration: () => Math.floor(Math.random() * 10)
+        duration: () => Math.floor(Math.random() * (24 - 1)) + 1,
+        cost: () => Math.floor(Math.random() * (8000 - 500)) + 500
       }
     },
     {

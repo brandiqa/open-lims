@@ -8,6 +8,7 @@ module.exports = function (app) {
     name: { type: String, required: true },
     description: { type: String, required: true },
     duration: { type: Number, required: true },
+    cost: { type: Number, required: true },
     consumables: [{ type: mongooseClient.Schema.Types.ObjectId, ref: 'products' }],
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
