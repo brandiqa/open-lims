@@ -18,6 +18,24 @@ module.exports = {
         name: '{{lorem.word}}',
         cost: '{{finance.amount}}'
       }
+    },
+    {
+      path: '/api/tasks',
+      count: 100,
+      template: {
+        name: '{{lorem.word}}',
+        description: '{{lorem.sentence}}',
+        duration: () => Math.floor(Math.random() * 10)
+      }
+    },
+    {
+      path: '/api/services',
+      count: 10,
+      template: {
+        name: '{{lorem.word}}',
+        description: '{{lorem.sentence}}',
+        price: () => Math.floor(Math.random() * (25000 - 5000)) + 5000
+      }
     }
   ]
 };
