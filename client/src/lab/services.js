@@ -9,8 +9,8 @@ import DomainSchema from '../templates/domain-schema';
 class Services extends React.Component {
 
   table= {
-    headers: ['Name', 'Description', 'Price'],
-    columns: ['name', 'description', 'price']
+    headers: ['Name', 'Description', 'Duration(Days)', 'Price(KES)'],
+    columns: ['name', 'description', 'duration', 'price']
   }
 
   fields = {
@@ -25,12 +25,19 @@ class Services extends React.Component {
       name: 'description',
       label: 'Description',
       placeholder: 'Describe service',
-      type: 'text',
+      type: 'textarea',
       rules:'string|required'
+    },
+    duration: {
+      name: 'duration',
+      label: 'Duration(Days)',
+      placeholder: 'Enter duration',
+      type: 'number',
+      rules:'numeric|required'
     },
     price: {
       name: 'price',
-      label: 'Price',
+      label: 'Price(KES)',
       placeholder: 'Enter service price',
       type: 'number',
       rules:'numeric|required'

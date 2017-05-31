@@ -32,8 +32,9 @@ module.exports = {
       path: '/api/services',
       count: 10,
       template: {
-        name: '{{lorem.word}}',
+        name: '{{lorem.slug}}',
         description: '{{lorem.sentence}}',
+        duration: () => Math.floor(Math.random() * (14 - 2)) + 2,
         price: () => Math.floor(Math.random() * (25000 - 5000)) + 5000
       }
     }
