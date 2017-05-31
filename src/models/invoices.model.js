@@ -10,6 +10,7 @@ module.exports = function (app) {
     service: { type: mongooseClient.Schema.Types.ObjectId, ref: 'services', required: true},
     amount: { type: Number, required: true },
     payment: { type: mongooseClient.Schema.Types.ObjectId, ref: 'payments' },
+    job: { type: mongooseClient.Schema.Types.ObjectId, ref: 'jobs' },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now }
   });
