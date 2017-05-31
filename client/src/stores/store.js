@@ -7,7 +7,7 @@ class Store {
   @observable errors = {};
   @observable entity = {};
   @observable entities = [];
-  @observable pagination = {skip:0};
+  @observable pagination = {skip:0, total:0, limit:0};
   @observable loading = false;
   @observable redirect = false;
 
@@ -73,6 +73,18 @@ class Store {
       skips.push(i);
     }
     return skips.map((skip,index) => ({page:index + 1, skip}));
+  }
+
+  @computed get previousPage() {
+    const { skip, limit } = this.pagination;
+    const prev = skip - limit;
+    return prev < 0 ? 0 : prev;
+  }
+
+  @computed get nextPage() {
+    const { skip, limit, total } = this.pagination;
+    const next = skip + limit;
+    return next > total ? (total-limit) : next;
   }
 
   @action

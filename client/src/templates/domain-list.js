@@ -2,6 +2,7 @@ import React from 'react';
 import { observer } from 'mobx-react';
 import { Message, Icon, Table, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import classnames from 'classnames';
 
 @observer
 class DomainList extends React.Component {
@@ -24,7 +25,7 @@ class DomainList extends React.Component {
   render() {
     const { routes, schema, store } = this.props;
     const { label, table } = schema;
-    const { entities, loading, errors, pageNumbers } = store;
+    const { entities, loading, errors, pageNumbers, previousPage, nextPage, pagination } = store;
     const messages = errors.messages ? errors.messages.toJS() : [];
 
     const errorMessages = (
@@ -67,16 +68,19 @@ class DomainList extends React.Component {
     ));
 
     const pageItems = pageNumbers.map(page => (
-      <Menu.Item as='a' key={page.skip} onClick={() => this.handlePageClick(page.skip)}>{page.page}</Menu.Item>
+      <Menu.Item as='a' key={page.skip} onClick={() => this.handlePageClick(page.skip)} className={classnames({active:pagination.skip === page.skip})}>
+        {page.page}
+      </Menu.Item>
     ));
 
-    const pagination = (
+
+    const paginationLinks = (
       <Menu floated='right' pagination>
-        <Menu.Item as='a' icon>
+        <Menu.Item as='a' icon onClick={() => this.handlePageClick(previousPage)}>
           <Icon name='left chevron' />
         </Menu.Item>
         {pageItems}
-        <Menu.Item as='a' icon>
+        <Menu.Item as='a' icon onClick={() => this.handlePageClick(nextPage)}>
           <Icon name='right chevron' />
         </Menu.Item>
       </Menu>
@@ -95,7 +99,7 @@ class DomainList extends React.Component {
         <Table.Footer>
           <Table.Row>
             <Table.HeaderCell colSpan='3'>
-              {pagination}
+              {paginationLinks}
             </Table.HeaderCell>
           </Table.Row>
         </Table.Footer>
