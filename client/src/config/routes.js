@@ -25,6 +25,7 @@ import Products from '../inventory/products';
 
 /** Lab Routes **/
 import Lab from '../lab';
+import LabSummary from '../lab/lab-summary';
 import Services from '../lab/services';
 import Tasks from '../lab/tasks';
 
@@ -147,7 +148,7 @@ const routes = [
             path: LAB_ROUTE,
             label: 'Summary',
             exact: true,
-            component: Default,
+            component: LabSummary,
           },
           {
             path: `${LAB_ROUTE}/services`,
