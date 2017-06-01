@@ -6,7 +6,7 @@ class DashboardSummary extends Component {
   render() {
     const statsPanel = (
       <Segment inverted>
-        <Header inverted textAlign='center'>Annual Summary</Header>
+        <Header inverted>Annual Summary</Header>
         <Divider/>
         <Statistic.Group widths='four'>
           <Statistic inverted>

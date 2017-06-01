@@ -20,6 +20,7 @@ import Payments from '../sales/payments';
 
 /** Inventory Routes **/
 import Inventory from '../inventory';
+import InventorySummary from '../inventory/summary';
 import Vendors from '../inventory/vendors';
 import Products from '../inventory/products';
 
@@ -110,7 +111,7 @@ const routes = [
             path: INVENTORY_ROUTE,
             label: 'Summary',
             exact: true,
-            component: Default,
+            component: InventorySummary,
           },
           {
             path: `${INVENTORY_ROUTE}/vendors`,
