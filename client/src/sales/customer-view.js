@@ -12,4 +12,4 @@ class CustomerView extends React.Component {
   }
 }
 
-export default Customer;
+export default CustomerView;

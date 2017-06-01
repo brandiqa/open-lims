@@ -32,4 +32,4 @@ class DomainRoutes {
 
 }
 
-export default DomainRoute;
+export default DomainRoutes;

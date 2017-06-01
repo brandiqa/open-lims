@@ -1,7 +1,8 @@
 import React from 'react';
 import { inject } from 'mobx-react';
 import { SALES_ROUTE } from '../config/routes';
-import DomainPage from '../templates/domain-page';
+// import DomainPage from '../templates/domain-page';
+import CustomerPage from './customer-page';
 import DomainRoutes from '../templates/domain-routes';
 import DomainSchema from '../templates/domain-schema';
 
@@ -63,7 +64,7 @@ class Customers extends React.Component {
     const schema = new DomainSchema('Customer', this.table, this.form);
 
     return (
-      <DomainPage store={store} routes={routes} schema={schema} />
+      <CustomerPage store={store} routes={routes} schema={schema} />
     )
   }
 }
