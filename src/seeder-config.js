@@ -1,5 +1,5 @@
 module.exports = {
-  disabled: false,
+  disabled: true,
   services:[
     {
       path: '/api/vendors',
