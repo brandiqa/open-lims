@@ -3,7 +3,7 @@ module.exports = {
   services:[
     {
       path: '/api/vendors',
-      count: 25,
+      count: 60,
       template: {
         name: '{{company.companyName}}',
         address: '{{address.streetAddress}}',
@@ -13,7 +13,7 @@ module.exports = {
     },
     {
       path: '/api/products',
-      count: 50,
+      count: 200,
       template: {
         name: '{{lorem.word}}',
         cost: '{{finance.amount}}'
@@ -31,7 +31,7 @@ module.exports = {
     },
     {
       path: '/api/services',
-      count: 10,
+      count: 72,
       template: {
         name: '{{lorem.slug}}',
         description: '{{lorem.sentence}}',
@@ -41,7 +41,7 @@ module.exports = {
     },
     {
       path: '/api/customers',
-      count: 35,
+      count: 150,
       template: {
         name: '{{company.companyName}}',
         address: '{{address.streetAddress}}',

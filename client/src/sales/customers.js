@@ -9,7 +9,7 @@ import DomainSchema from '../templates/domain-schema';
 class Customers extends React.Component {
 
   table= {
-    headers: ['Name', 'Address', 'Phone', 'Email', 'Cr Limit'],
+    headers: ['Name', 'Address', 'Phone', 'Email', 'Credit Limit'],
     columns: ['name', 'address', 'phone', 'email', 'creditLimit']
   }
 

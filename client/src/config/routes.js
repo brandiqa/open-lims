@@ -31,6 +31,7 @@ import Tasks from '../lab/tasks';
 
 /** ADMIN Routes **/
 import Admin from '../admin';
+import AdminSummary from '../admin/summary';
 import Users from '../admin/users';
 import Roles from '../admin/roles';
 
@@ -177,7 +178,7 @@ const routes = [
             path: ADMIN_ROUTE,
             label: 'Summary',
             exact: true,
-            component: Default
+            component: AdminSummary
           },
           {
             path: `${ADMIN_ROUTE}/users`,
