@@ -51,7 +51,7 @@ class Store {
   fetchAll = async() => {
     this.startAsync();
     try{
-      const query = {$skip:this.pagination.skip}
+      const query = {$skip:this.pagination.skip, $sort: { _id: -1}}
       const response = await this.service.find({query})
       runInAction('entities fetched', () => {
         this.entities = response.data;
