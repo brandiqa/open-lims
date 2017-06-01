@@ -15,3 +15,7 @@
 .red {
   color: #D01919;
 }
+
+.menu {
+  border-radius: 0 !important;
+}
