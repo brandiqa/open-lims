@@ -1,5 +1,5 @@
 import React from 'react'
-import { Icon, Statistic, Divider } from 'semantic-ui-react'
+import { Icon, Statistic, Divider } from 'semantic-ui-react';
 
 class AdminSummary extends React.Component {
   render() {
