@@ -1,4 +1,4 @@
-class DomainRoute {
+class DomainRoutes {
 
   constructor(baseRoute, path){
     this.baseRoute = baseRoute;
@@ -20,6 +20,15 @@ class DomainRoute {
   get baseEdit() {
     return this.baseRoute + this.path + '/edit/';
   }
+
+  get view() {
+    return this.baseRoute + this.path + '/view/:_id';
+  }
+
+  get baseView() {
+    return this.baseRoute + this.path + '/view/';
+  }
+
 
 }
 
