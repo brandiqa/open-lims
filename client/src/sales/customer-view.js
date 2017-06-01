@@ -14,13 +14,17 @@ class CustomerView extends React.Component {
     }
   }
 
+  handleBackClick = () => {
+    this.props.history.goBack();
+  }
+
   render() {
     const { routes } = this.props;
     const { entity:customer } = this.props.store;
 
     const customerMenu = (
       <Menu style={{marginBottom:0}} inverted color={brand}>
-        <Menu.Item>
+        <Menu.Item onClick={() => this.handleBackClick()}>
           <Icon name='chevron left'/>
         </Menu.Item>
       </Menu>
