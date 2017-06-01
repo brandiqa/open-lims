@@ -42,7 +42,7 @@ class CustomerView extends React.Component {
       <Item.Group divided>
         <Item>
           <Item.Content>
-            <Item.Header>
+            <Item.Header style={{textDecoration:'underline'}}>
               {customer.name}
             </Item.Header>
             <Item.Meta>
