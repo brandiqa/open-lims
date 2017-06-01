@@ -3,14 +3,15 @@ import { observer } from 'mobx-react';
 import { Segment, Header, Icon } from 'semantic-ui-react';
 import MobxForm from '../templates/mobx-form';
 import DynamicForm from '../templates/dynamic-form';
+import DomainRoutes from '../templates/domain-routes';
+import DomainSchema from '../templates/domain-schema';
 import { ADMIN_ROUTE } from '../config/routes';
 import { brand } from '../config/theme';
 
 @observer
 class UserForm extends React.Component {
 
-  form = null;
-  fields = {
+  baseFields = {
     firstName: {
       name: 'firstName',
       label: 'First Name',
@@ -41,7 +42,7 @@ class UserForm extends React.Component {
     }
   }
 
-  passwordGroup = {
+  passwordFields = {
     password: {
       name: 'password',
       label: 'Password',
@@ -58,19 +59,15 @@ class UserForm extends React.Component {
     }
   };
 
-  config = {
-    from: { pathname: `${ADMIN_ROUTE}/users` },
-    submit: { label: 'Save', icon: 'check' }
-  }
-
   constructor(props) {
     super(props);
     const { _id } = props.match.params;
-    let fields = this.fields;
     if(!_id){
-      fields = { ...this.fields, ...this.passwordGroup};
+      this.fields = { ...this.baseFields, ...this.passwordGroup};
+    } else {
+      this.fields = this.baseFields;
     }
-    this.form = MobxForm.createForm(fields, props.store)
+    this.form = MobxForm.createForm(this.fields, props.store)
   }
 
   componentDidMount() {
@@ -84,7 +81,15 @@ class UserForm extends React.Component {
   }
 
   render() {
-    const { entity } = this.props.store;
+    const { store } = this.props;
+    const { entity } = store;
+    const routes = new DomainRoutes(ADMIN_ROUTE, '/users');
+    const formSchema = {
+      fields: this.fields,
+      icon: 'users',
+      submit: { label: 'Save', icon: 'check' }
+    }
+    const schema = new DomainSchema('User', null, formSchema);
 
     return (
       <div>
@@ -92,7 +97,7 @@ class UserForm extends React.Component {
             <Header color={brand} as='h4'>
               <Icon name="user"/> { entity._id ? 'Edit User' : 'New User' }
             </Header>
-            <DynamicForm store={this.props.store} form={this.form} config={this.config} entity={entity}/>
+            <DynamicForm store={store} form={this.form} schema={schema} entity={entity} routes={routes}/>
           </Segment>
       </div>
     )
