@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import { Link } from 'react-router-dom';
 import { Grid, Menu, Icon, Item }  from 'semantic-ui-react';
 import { brand } from '../config/theme';
 
@@ -14,6 +15,7 @@ class CustomerView extends React.Component {
   }
 
   render() {
+    const { routes } = this.props;
     const { entity:customer } = this.props.store;
 
     const customerMenu = (
@@ -59,6 +61,9 @@ class CustomerView extends React.Component {
               1 Active Job
             </Item.Meta>
           </Item.Content>
+        </Item>
+        <Item>
+          <Link to={`${routes.baseEdit}${customer._id}`} className="ui button primary">Edit</Link>
         </Item>
       </Item.Group>
     )
