@@ -26,7 +26,7 @@ import Products from '../inventory/products';
 
 /** Lab Routes **/
 import Lab from '../lab';
-import LabSummary from '../lab/lab-summary';
+import LabSummary from '../lab/summary';
 import Services from '../lab/services';
 import Tasks from '../lab/tasks';
 
