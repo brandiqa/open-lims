@@ -16,7 +16,7 @@ import SalesSummary from '../sales/summary';
 import Customers from '../sales/customers';
 import Invoices from '../sales/invoices';
 import Payments from '../sales/payments';
-import Accounts from '../sales/accounts';
+// import Accounts from '../sales/accounts';
 
 /** Inventory Routes **/
 import Inventory from '../inventory';
@@ -93,11 +93,11 @@ const routes = [
             label: 'Payments',
             component: Payments
           },
-          {
-            path: `${SALES_ROUTE}/accounts`,
-              label: 'Accounts',
-            component: Accounts
-          }
+          // {
+          //   path: `${SALES_ROUTE}/accounts`,
+          //     label: 'Accounts',
+          //   component: Accounts
+          // }
         ]
       },
       {

@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { Icon, Statistic, Divider, Segment, Progress, Grid, Feed } from 'semantic-ui-react';
+import { Statistic, Divider, Segment, Header } from 'semantic-ui-react';
 
 class SalesSummary extends Component {
   render() {
     const statsPanel = (
-      <Segment inverted>
+      <Segment inverted color='orange'>
+        <Header inverted>Monthly Summary</Header>
+        <Divider/>
         <Statistic.Group widths='four'>
           <Statistic inverted>
             <Statistic.Value>8</Statistic.Value>
@@ -14,11 +16,11 @@ class SalesSummary extends Component {
             <Statistic.Value>16</Statistic.Value>
             <Statistic.Label>New Invoices</Statistic.Label>
           </Statistic>
-          <Statistic inverted color='teal'>
+          <Statistic inverted>
             <Statistic.Value>9</Statistic.Value>
             <Statistic.Label>Paid Invoices</Statistic.Label>
           </Statistic>
-          <Statistic inverted color='red'>
+          <Statistic inverted>
             <Statistic.Value>8</Statistic.Value>
             <Statistic.Label>Unpaid Payments</Statistic.Label>
           </Statistic>
@@ -28,7 +30,6 @@ class SalesSummary extends Component {
 
     return (
       <div>
-        <h3>Monthly Summary</h3>
         {statsPanel}
       </div>
     )

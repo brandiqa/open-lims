@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { Icon, Statistic, Divider, Segment, Progress, Grid, Feed } from 'semantic-ui-react';
+import { Icon, Statistic, Divider, Segment, Progress, Grid, Feed, Header } from 'semantic-ui-react';
 
 class DashboardSummary extends Component {
 
   render() {
     const statsPanel = (
       <Segment inverted>
+        <Header inverted textAlign='center'>Annual Summary</Header>
+        <Divider/>
         <Statistic.Group widths='four'>
           <Statistic inverted>
             <Statistic.Value>323</Statistic.Value>
@@ -28,8 +30,9 @@ class DashboardSummary extends Component {
     );
 
     const feedPanel = (
-      <Segment centered padded>
+      <Segment padded>
         <h3>Activity Feed</h3>
+        <Divider/>
         <Feed>
          <Feed.Event>
            <Feed.Label>
@@ -82,6 +85,7 @@ class DashboardSummary extends Component {
     const progressPanel = (
       <Segment inverted>
         <h3>Monthly Progress Summary</h3>
+        <Divider/>
         <Progress percent={21} inverted progress>
           Pending Invoices
         </Progress>
