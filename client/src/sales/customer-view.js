@@ -1,6 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Grid, Menu, Icon, Item }  from 'semantic-ui-react';
 import { brand } from '../config/theme';
 
@@ -32,9 +32,9 @@ class CustomerView extends React.Component {
 
     const invoiceMenu = (
       <Menu inverted color={brand}>
-        <Menu.Item>
-          Customer Invoices
-        </Menu.Item>
+        <NavLink className="item" activeClassName="active" to='/dashboard/invoices/new'>
+          <Icon name='add'/>New Invoice
+        </NavLink>
       </Menu>
     )
 
