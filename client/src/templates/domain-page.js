@@ -6,16 +6,22 @@ import DomainForm from './domain-form';
 
 class DomainPage extends React.Component {
 
+  routeComponents(store, routes, schema) {
+    return [
+      <Route key={routes.list} component={props => (<DomainList {...props} routes={routes} schema={schema} store={store} />)} exact path={routes.list}/>,
+      <Route key={routes.new} component={props => (<DomainForm {...props} routes={routes} schema={schema} store={store} />)} path={routes.new}/>,
+      <Route key={routes.edit} component={props => (<DomainForm {...props} routes={routes} schema={schema} store={store} />)} path={routes.edit} />
+    ]
+  }
+
    render() {
-     const { store, routes, schema} = this.props;
+     const { store, routes, schema } = this.props;
 
      return (
        <div>
          <Header>{schema.label}s</Header>
          <Divider/>
-         <Route component={props => (<DomainList {...props} routes={routes} schema={schema} store={store} />)} exact path={routes.list}/>
-         <Route component={props => (<DomainForm {...props} routes={routes} schema={schema} store={store} />)} path={routes.new}/>
-         <Route component={props => (<DomainForm {...props} routes={routes} schema={schema} store={store} />)} path={routes.edit} />
+         {this.routeComponents(store, routes, schema)}
        </div>
      );
    }
