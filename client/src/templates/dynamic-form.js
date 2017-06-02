@@ -16,6 +16,12 @@ class DynamicForm extends React.Component {
     form.update(entity);
   }
 
+  handleCancelClick = () => {
+    const { form, history } = this.props;
+    form.reset();
+    history.goBack();
+  }
+
   render() {
     const { form, schema, store, routes } = this.props;
     const { errors, loading, redirect } = store;
@@ -36,6 +42,13 @@ class DynamicForm extends React.Component {
       <Message negative header={errors.global} list={messages.reverse()}/>
     );
 
+    const cancelButton = (
+      <Button icon labelPosition="left" onClick={() => this.handleCancelClick()}>
+        <Icon name='cancel'/>
+        Cancel
+      </Button>
+    );
+
     const formView = (
       <div>
         {errors.global && errorMessages }
@@ -45,6 +58,7 @@ class DynamicForm extends React.Component {
             <Icon name={schema.submitIcon}/>
             {schema.submitLabel}
           </Button>
+          { this.props.history && cancelButton}
         </Form>
       </div>
     );

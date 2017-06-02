@@ -34,7 +34,7 @@ class DomainForm extends React.Component {
           <Header color={brand} as='h4'>
             <Icon name={schema.icon}/> { entity._id ? 'Edit' : 'New' } {label}
           </Header>
-          <DynamicForm store={store} form={this.form} schema={schema} entity={entity} routes={routes}/>
+          <DynamicForm store={store} form={this.form} schema={schema} entity={entity} routes={routes} history={this.props.history}/>
         </Segment>
       </div>
     )
