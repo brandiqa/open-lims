@@ -42,16 +42,16 @@ class DomainList extends React.Component {
     //   </Message>
     // );
 
-    const emptyMessage = (
-      <Message icon info>
-        <Icon name='warning circle' />
-        <Message.Content>
-           <Message.Header>No {label}(s) Found</Message.Header>
-           <span>Add some {label}(s) to get started..</span>
-          <Link to={routes.new} className="ui button primary right floated">Add New {label}</Link>
-       </Message.Content>
-      </Message>
-    );
+    // const emptyMessage = (
+    //   <Message icon info>
+    //     <Icon name='warning circle' />
+    //     <Message.Content>
+    //        <Message.Header>No {label}(s) Found</Message.Header>
+    //        <span>Add some {label}(s) to get started..</span>
+    //       <Link to={routes.new} className="ui button primary right floated">Add New {label}</Link>
+    //    </Message.Content>
+    //   </Message>
+    // );
 
     const tableHeaderCells = table.headers.map(header => (
       <Table.HeaderCell key={header}>{header}</Table.HeaderCell>
@@ -112,7 +112,7 @@ class DomainList extends React.Component {
     return (
       <div>
         {/* { loading && fetchingMessage } */}
-        { entities.length === 0 && !loading  && !errors.global && emptyMessage }
+        {/* { entities.length === 0 && !loading  && !errors.global && emptyMessage } */}
         { errors.global && errorMessages}
         { tableView }
       </div>
