@@ -25,7 +25,7 @@ class DomainList extends React.Component {
   render() {
     const { routes, schema, store } = this.props;
     const { label, table } = schema;
-    const { entities, loading, errors, pageNumbers, previousPage, nextPage, pagination } = store;
+    const { entities, errors, pageNumbers, previousPage, nextPage, pagination } = store;
     const messages = errors.messages ? errors.messages.toJS() : [];
 
     const errorMessages = (

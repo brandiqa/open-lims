@@ -9,8 +9,8 @@ import DomainSchema from '../templates/domain-schema';
 class Invoices extends React.Component {
 
   table  = {
-    headers: ['Invoice No', 'Date', 'Amount'],
-    columns: ['invoiceNo', 'createdAt', 'amount']
+    headers: ['Invoice No', 'Date', 'Customer', 'Service', 'Amount', 'Paid', 'Job Status'],
+    columns: ['invoiceNo', 'customer', 'createdAt', 'service', 'amount', 'payment', 'job']
   };
 
   fields = {
