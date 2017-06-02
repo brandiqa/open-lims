@@ -98,6 +98,9 @@ class DomainList extends React.Component {
         </Table.Body>
         <Table.Footer>
           <Table.Row>
+            <Table.HeaderCell>
+                <Link to={routes.new} className="ui button orange icon"><Icon name='add'/> Add New {label}</Link>
+            </Table.HeaderCell>
             <Table.HeaderCell colSpan={table.columns.length}>
               {paginationLinks}
             </Table.HeaderCell>
