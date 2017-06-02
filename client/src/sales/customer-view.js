@@ -32,7 +32,7 @@ class CustomerView extends React.Component {
 
     const invoiceMenu = (
       <Menu inverted color={brand}>
-        <NavLink className="item" activeClassName="active" to='/dashboard/invoices/new'>
+        <NavLink className="item" activeClassName="active" to='/dashboard/sales/invoices/new'>
           <Icon name='add'/>New Invoice
         </NavLink>
       </Menu>
